@@ -77,11 +77,50 @@ Assume there exists two disjoined paths, $P$ and $Q$, both being the longest pat
 
 Make $p$ and $q$ being the mid-point of $P$ and $Q$ respectively, we may have a new path $S$ travels from the first half of $P$ (till vertex $p$), then go through $R$ (to vertex $q$), then travels thought the second half of $Q$. This path $S$ will have a length of $\ilc{len(P)} + \ilc{len(R)} + \ilc{Q}$ which is at least $\frac{1}{2}L + 1 \frac{1}{2}L$, which is $\geq L$. Thus, by contradiction, if $P$ and $Q$ are the longest paths in a connected graph, they must have a common vertex.
 
+\end{proof}
+
 
 \section{Problem 3}
 
+% \begin{proof}
+% \textit{(i)} $\longrightarrow$ \textit{(ii)}, to proof by direct proof:
+% \end{proof}
 
 
+
+\begin{proof}
+
+\newline Set \textit{(i)} as base. \newline
+
+\textit{(i)} $\longrightarrow$ \textit{(ii)}, to proof by contradiction:
+
+Assume there are two paths in $T$ between two arbitarily selected nodes $u$ and $v$, then we can form a cycle on nodes $(u, v)$, which is against the definition of a tree. Thus, by contradiction, the statement is proven \newline
+
+\textit{(ii)} $\longrightarrow$ \textit{(i)}, to proof by contradiction:
+
+Assume $T$ is not a tree, which means it is not a connected acyclic graph, it must has a cycle of same fashion or some nodes of $T$ is not conncted to others. Both of the situations void proposition \textit{(ii)}, as if there is a cycle then the path between a certain two-node are no long unique; and if some nodes are not conncted, then there is no path (not to mention ``unique path'') at all. Thus, by contradiction, the statement is proven. \newline
+
+\textit{(ii)} $\longrightarrow$ \textit{(iii)}, to proof by contradiction:
+
+Let $e$ to be the edge of $(u, v)$ in $T$. If $T-e$ is disconncted, this means there is another path to connect $u$ with $v$. Which is a contradiction to proposition \textit{(ii)}. Thus, the statement is proven. \newline
+
+\textit{(iii)} $\longrightarrow$ \textit{(ii)}, to proof by contrapositive:
+
+Assume there are two path connecting nodes $u, v$ in $T$ (a negation of proposition \textit{(ii)}), while one of them is a direct edge $(u, v)$, lets set it to be $e$. Then when we delete $e$, we may have another path still connecting $u, v$, which makes the new $T'$ still being conncted (a negation of proposition \textit{(iii)}). Thus, the statement is proven by contrapositive. \newline
+
+\textit{(ii)} $\longrightarrow$ \textit{(iv)}, to proof by direct proof:
+
+
+For every two nodes in $T$ to be uniquely conncted, $T$ is connected, has no cycle, and any two non-adjacent nodes $u, v$ in $T$ are not directly connected -- as otherwise node $u$ and $v$ can have at aleast two paths between them (the direct connection and indirect connection $<u, ..., v>$ since $T$ is conncted) and this forms a cycle. Let $xy$ to be edge $(u, v)$, a cycle is formed with this edge $(u, v)$ and original path between $u, v$ in $T$ and the statement is proven.
+
+
+\textit{(iv)} $\longrightarrow$ \textit{(ii)}, to proof by direct proof:
+
+For a $T$ which does not contain any cycle, and we can find a cycle for any two non-adjacent nodes $x, y$ in $T+xy$. We can tell that without the direct edge of $(x,y)$, node $x$ and $y$ are conncted in $T$. This is because a cycle needs a minimum of two paths between node $x$ and $y$, so there must be another path of $x$ to $y$ exists in $T$. Since $x$ and $y$ can be any two non-adjacent nodes, and since any two adjacent nodes are intrinsically connected, we may say that $T$ is connected. With $T$ being conncted and having no cycle, we may say that every two nodes in $T$ are linked by a unique path.
+
+
+
+\end{proof}
 
 \section{Problem 4}
 
