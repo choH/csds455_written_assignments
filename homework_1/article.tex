@@ -42,8 +42,13 @@
 
 \section{Problem 1}
 
+\begin{itemize}
+    \item \textbf{Proposition 1}: There exists a self-complementary graph $G$ with $n$ vertices .
+    \item \textbf{Proposition 2}: For $n \equiv 0$ or $n \equiv 1 \mod 4$.
+\end{itemize}
+
 \begin{proof}
-To proof by direct proof:\newline
+\textbf{Proposition 1} $\longrightarrow$ \textbf{Proposition 2}, to proof by direct proof:\newline
 
 Let graph $G$ be a self-complementary graph with $n$ vertices, and let $G'$ be a completed graph based on the vertices of $G$. It is known that $G$ must have half of the edges of $G'$ to be self-complementary. Thus, we may tell $G$ has:
 
@@ -56,6 +61,14 @@ number of edges.
 Since the number of edges must be $\in \mathbb{Z}$, we must have $n$ or $(n-1)$ being divisible by $4$. Therefore, for a self-complementary graph with $n$ vertices, we must have $n \equiv 0$ or $n \equiv 1 \mod 4$.
 \end{proof}
 
+\begin{proof}
+\textbf{Proposition 2} $\longrightarrow$ \textbf{Proposition 1}, to proof by induction:\newline
+
+It is known that we have $P_4$ (a line that connects four vertices) and $C_5$ (a pentagon that connects five vertices) being self-complementary graphs, we call these graphs $\alpha$. Now we have another $\beta$ graph of $P_4$, and we connects all the vertices of graph $\alpha$ to the two vertices with a degree of $2$ from graph $\beta$ to form a new graph $\alpha'$.
+
+This new graph $\alpha'$ will still be self-complementary since the $\alpha$ graph is self-complementary, the $\beta$ graph is self-complementary; and the connections between $\alpha$ and $\beta$ will also be self-complementary due to the fact that the two degree-$1$ vertices in $\beta$ that did NOT joined $\alpha$ will be the degree-$2$ vertices in $\bar{\beta}$ that joining $\bar{\alpha}$ with $\bar{\beta}$ -- which is isomorphic to the structure of $\alpha'$ in terms of the connections between $\alpha$ and $\beta$.\newline
+
+Following this process, we can always contruct a self-complementary graph with $n$ vertices with $n \equiv 0 \mod 4$ (building from $P_4$)  or $n \equiv 1 \mod 4$ (building from $C_5$). Thus, for graph $G$ with $n$ vertices where $n \equiv 0$ or $n \equiv 1 \mod 4$, there exists a self-complementary graph.
 \section{Problem 2}
 
 \begin{proof}
@@ -66,6 +79,7 @@ Make $p$ and $q$ being the mid-point of $P$ and $Q$ respectively, we may have a 
 
 
 \section{Problem 3}
+
 
 
 
