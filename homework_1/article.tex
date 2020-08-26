@@ -45,7 +45,7 @@
 \begin{proof}
 To proof by direct proof:\newline
 
-Let graph $G$ be a self-complementary graph with $n$ vertices, and let $G'$ be a fully connected graph based on the vertices of $G$. It is known that $G$ must have half of the edges of $G'$ to be self-complementary. Thus, we may tell $G$ has:
+Let graph $G$ be a self-complementary graph with $n$ vertices, and let $G'$ be a completed graph based on the vertices of $G$. It is known that $G$ must have half of the edges of $G'$ to be self-complementary. Thus, we may tell $G$ has:
 
 \begin{equation}
     \frac{{n \choose 2}}{2} = \frac{n(n-1)}{4} \nonumber
@@ -53,7 +53,7 @@ Let graph $G$ be a self-complementary graph with $n$ vertices, and let $G'$ be a
 
 number of edges.
 
-Thus, since the number of edges must be $\in \mathbb{Z}$, we must have $n$ or $(n-1)$ being divisible by $4$. Therefore, for a self-complementary graph with $n$ vertices, we must have $n \equiv 0$ or $n \equiv 1 \mod 4$.
+Since the number of edges must be $\in \mathbb{Z}$, we must have $n$ or $(n-1)$ being divisible by $4$. Therefore, for a self-complementary graph with $n$ vertices, we must have $n \equiv 0$ or $n \equiv 1 \mod 4$.
 \end{proof}
 
 \section{Problem 2}
@@ -65,14 +65,30 @@ Assume there exists two disjoined paths, $P$ and $Q$, both being the longest pat
 Make $p$ and $q$ being the mid-point of $P$ and $Q$ respectively, we may have a new path $S$ travels from the first half of $P$ (till vertex $p$), then go through $R$ (to vertex $q$), then travels thought the second half of $Q$. This path $S$ will have a length of $\ilc{len(P)} + \ilc{len(R)} + \ilc{Q}$ which is at least $\frac{1}{2}L + 1 \frac{1}{2}L$, which is $\geq L$. Thus, by contradiction, if $P$ and $Q$ are the longest paths in a connected graph, they must have a common vertex.
 
 
-
-
 \section{Problem 3}
+
+
 
 \section{Problem 4}
 
 
+\begin{proof}
+To proof by induction: \newline
 
+For $T_1$ being a set of trees with $1$ node (in this case, there is only one tree). Any tree from $T_1$ must be a subgraph of graph $G_1$, where $G_1$ represents all the graphs with $\delta(G_1) \geq 0$ -- as both the tree and the graph is essentially a single node with no edges. \newline
+
+Assume a random tree $T_k$ from set $T_K$, a set of trees with $k$ nodes, such tree must be a subgraph of a graph $G_k$ from set $G_K$, where $\delta(G_k) \geq k - 1$. Such randomly selected $T_k$ will also be a subgraph of a certain graph from set $G_{K+1}$; since $G_{K+1}$, with $\delta(G_(k+1)) \geq k$, is included in set $G_K$ due to $\delta(G_(k+1)) \geq \delta(G_k) \geq k - 1$.\newline
+
+If we locate an arbitary node $p$ from tree $T_{k}$, then add a child node $q$ with a corresponding edge to $p$  (namely, edge $(p, q)$), we have a new tree $T'$. This $T'$ will be a potential $T_{k+1}$ tree from set $T_{K+1}$ -- since with the newly added node $q$, now it has $k+1$ nodes.
+
+Now take graph $G_k$ and add a new node $q'$ that is connected to all nodes of $G_k$, we call this modified version of $G_k$ as $G_k'$. Such graph $G_k'$ is considered to be a graph from set $G_{K+1}$. Since node $q'$ is conncted to every node of $G_k$, thus it increases $\delta(G_k')$ by $1$ to be at least $\delta(G_k) + 1$, namely $\delta(G_k') \geq k$ -- which is the exact requirement for $\delta(G_{K+1})$.\newline
+
+We now may show $T'$ is a subgraph of $G_k'$. We may locate the subgraph of $T_k$ in $G_k'$, and find the projection of node $p$ from $T_k$ in $G_k'$ (let's call it ``$p'$''). This $p'$ node is connected to the $q'$ node we just added to $G_k'$, and the subgraph of $T_k$ in $G_k'$ plus this $p'$ node will form a subgraph that is isomorphic to $T'$ -- since $T'$ is essentially $T_k$ with an extra node $q$ connected to $p$.
+
+Since the node $p$ in $T'$ is an arbitarily selected node in randomly selected tree from set $T_K$, this $T'$ can essentially be any tree in set $T_{K+1}$. Thus, any tree from set $T_{K+1}$ may have a corresponding graph from set $G_{K+1}$, where the tree will be a subgraph of the graph, namely $T_{k+1} \subseteq G_{k+1}$; we have proven the statement by induction.
+
+
+\end{proof}
 
 % \section{References}
 %
