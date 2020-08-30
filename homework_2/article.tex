@@ -56,19 +56,27 @@ For the ease of description, let's label the nodes from left set ($U$) of the bi
 Here's a emulation of a \textsc{Hopcroft-Karp} algorithm implemented with the above \ilc{BFS}.
 
 \begin{itemize}
-    \item The unchecked node with biggest alphabetical value $\in U$ is node $F$.
-    \item The child nodes of $F$ $\in V$ are $\{(1), (4)\}$. With $\delta{(1)} = 1$ and $\delta{(4)} = 3$. Therefore edge $(F, (4))$ is checked. Since it is a single edge argumenting path, it is added to $M$.
-    \item The unchecked node with biggest alphabetical value $\in U$ is node $E$.
-    \item The child nodes of $E$ $\in V$ are $\{(3), (5)\}$. With $\delta{(3)} = 3$ and $\delta{(4)} = 5$. Since node $(3)$ has a lower numerical value, edge $(E, (3))$ is checked. Since it is a single edge argumenting path, it is added to $M$.
-    \item The unchecked node with biggest alphabetical value $\in U$ is node $D$.
-    \item The child nodes of $D$ $\in V$ are $\{(2), (5)\}$. With $\delta{(2)} = 1$ and $\delta{(5)} = 3$. Therefore edge $(D, (5))$ is checked. Since it is a single edge argumenting path, it is added to $M$.
+    \item The unchecked node with largest alphabetical value $\in U$ is node $F$.
+    \item The child nodes of $F$ $\in V$ are $\{(1), (4)\}$. With $\delta{(1)} = 1$ and $\delta{(4)} = 3$. Therefore edge $<F, (4)>$ is checked. Since it is a single edge argumenting path, it is added to $M$.
+    \item The unchecked node with largest alphabetical value $\in U$ is node $E$.
+    \item The child nodes of $E$ $\in V$ are $\{(3), (5)\}$. With $\delta{(3)} = 3$ and $\delta{(4)} = 5$. Since node $(3)$ has a lower numerical value, edge $<E, (3)>$ is checked. Since it is a single edge argumenting path, it is added to $M$.
+    \item The unchecked node with largest alphabetical value $\in U$ is node $D$.
+    \item The child nodes of $D$ $\in V$ are $\{(2), (5)\}$. With $\delta{(2)} = 1$ and $\delta{(5)} = 3$. Therefore edge $<D, (5)>$ is checked. Since it is a single edge argumenting path, it is added to $M$.
 \end{itemize}
 
 The given \textit{maximal matching} is obtained through the above iteration of \textsc{Hopcroft-Karp} algorithm. The statement is proven by direct example.
 
 \section{Problem 2}
 
-This problem will inherit the labeling introduced by the above problem
+This problem will inherit the labeling and list $M$ introduced by the above problem.
+
+For $C, B, A \in U$, all of their child nodes $\in V$ are not free. Thus, we will check for the free nodes $\in U$ for non-single-edged \textit{argumenting paths}.\newline
+
+Starting with node $C$, as it has the largest alphabetical value of all free nodes $\in U$. It has two child nodes $\in V$, $\{(4), (5)\}$, both having a degree of $3$. Thus we first check node $(4)$ since it has a lower numerical value. Since we are looking for an \textit{argumenting paths}, the only node we can proceed from $(4)$ is $F$, as it is the only \textit{matching edge} connected to $(4)$. The only node we can proceed from $F$ is $(1)$, as it is the only free node conncted to $F$.
+
+Now, with DFS from $(1)$, we have discovered an \textit{argumenting paths} of $<C, (4), F, (1)>$. Thus, we remove the \textit{matching edge} $<(4), F>$ from $M$, then add edge $<C, (4)>$ and $<F, (1)>$ to $M$.\newline
+
+Since there will be no more \textit{argumenting paths} in the graph (as we can't find any more alternating path which starts and ends on free nodes). This $\{ <F, (1)>, <E, (3)>, <D, (5)>, <C, (4)> \}$, with a cardinality of $4$, be the \textit{maximum matching} for the graph.
 
 \section{Problem 3}
 
