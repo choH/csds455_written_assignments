@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage{setspace}
 \setstretch{1}
 \usepackage{amsmath,amssymb, amsthm}
@@ -42,9 +42,33 @@
 
 \section{Problem 1}
 
+If the algorithm perform the \ilc{BFS} in the following way, it is possible to achieve the demonstrated \textit{maximal matching} during middle of the iteration process.
+
+For the ease of description, let's label the nodes from left set ($U$) of the bipartite graph $A, B, C, D, E, F$ from top to bottom; and label the nodes from right set ($V$) of the the bipartite graph as $(1), (2), (3), (4), (5)$ from top to bottom. And we have a empty list $M$.
+
+\begin{itemize}
+    \item Find a unchecked node $\in U$ labelled with biggest alphabetical value, let the node be $\alpha$
+    \item Gather all child nodes of $\alpha$ $\in V$ into a list $\beta$, then sort $\beta$ decendingly based on each node's degree (number of edges connected). If two nodes have the same degree, the node with lower numerical value will store prior in the list.
+    \item Pop the first node from $\beta$ to check until $\beta$ is empty.
+    \item Find a unchecked node $\in U$ labelled with biggest alphabetical value and repeat the whole list.
+\end{itemize}
+
+Here's a emulation of a \textsc{Hopcroft-Karp} algorithm implemented with the above \ilc{BFS}.
+
+\begin{itemize}
+    \item The unchecked node with biggest alphabetical value $\in U$ is node $F$.
+    \item The child nodes of $F$ $\in V$ are $\{(1), (4)\}$. With $\delta{(1)} = 1$ and $\delta{(4)} = 3$. Therefore edge $(F, (4))$ is checked. Since it is a single edge argumenting path, it is added to $M$.
+    \item The unchecked node with biggest alphabetical value $\in U$ is node $E$.
+    \item The child nodes of $E$ $\in V$ are $\{(3), (5)\}$. With $\delta{(3)} = 3$ and $\delta{(4)} = 5$. Since node $(3)$ has a lower numerical value, edge $(E, (3))$ is checked. Since it is a single edge argumenting path, it is added to $M$.
+    \item The unchecked node with biggest alphabetical value $\in U$ is node $D$.
+    \item The child nodes of $D$ $\in V$ are $\{(2), (5)\}$. With $\delta{(2)} = 1$ and $\delta{(5)} = 3$. Therefore edge $(D, (5))$ is checked. Since it is a single edge argumenting path, it is added to $M$.
+\end{itemize}
+
+The given \textit{maximal matching} is obtained through the above iteration of \textsc{Hopcroft-Karp} algorithm. The statement is proven by direct example.
 
 \section{Problem 2}
 
+This problem will inherit the labeling introduced by the above problem
 
 \section{Problem 3}
 
