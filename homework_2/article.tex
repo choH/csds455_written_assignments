@@ -42,41 +42,37 @@
 
 \section{Problem 1}
 
-If the algorithm perform the \ilc{BFS} in the following way, it is possible to achieve the demonstrated \textit{maximal matching} during middle of the iteration process.
+Arbitrarily label the given graph $G$ as following. For the ease of description, let the LHS of the graph to be set $U$, and the RHS to be set $V$. We will also have an empty list $M$ to store matching.
 
-For the ease of description, let's label the nodes from left set ($U$) of the bipartite graph $A, B, C, D, E, F$ from top to bottom; and label the nodes from right set ($V$) of the the bipartite graph as $(1), (2), (3), (4), (5)$ from top to bottom. And we have a empty list $M$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{{fig/fig_1.png}}
+    \caption{Labelled $G$ and its trace after first $3$ iterations}
+    \label{fig:1}
+\end{figure}
 
-\begin{itemize}
-    \item Find a unchecked node $\in U$ labelled with biggest alphabetical value, let the node be $\alpha$
-    \item Gather all child nodes of $\alpha$ $\in V$ into a list $\beta$, then sort $\beta$ decendingly based on each node's degree (number of edges connected). If two nodes have the same degree, the node with lower numerical value will store prior in the list.
-    \item Pop the first node from $\beta$ to check until $\beta$ is empty.
-    \item Find a unchecked node $\in U$ labelled with biggest alphabetical value and repeat the whole list.
-\end{itemize}
+As a rule of this \ilc{BFS}, the algorithm will try to match the node with lowest alphabetical value in $U$ to the node with lowest numerical value in $V$. Thus, the algorithm will check on edges $<A, (1)>$, $<B, (2)>$, and $C, (3)$ respectively. Since all of them are single edge argumenting pathes, we add all of them to $M$.
 
-Here's a emulation of a \textsc{Hopcroft-Karp} algorithm implemented with the above \ilc{BFS}.
-
-\begin{itemize}
-    \item The unchecked node with largest alphabetical value $\in U$ is node $F$.
-    \item The child nodes of $F$ $\in V$ are $\{(1), (4)\}$. With $\delta{(1)} = 1$ and $\delta{(4)} = 3$. Therefore edge $<F, (4)>$ is checked. Since it is a single edge argumenting path, it is added to $M$.
-    \item The unchecked node with largest alphabetical value $\in U$ is node $E$.
-    \item The child nodes of $E$ $\in V$ are $\{(3), (5)\}$. With $\delta{(3)} = 3$ and $\delta{(4)} = 5$. Since node $(3)$ has a lower numerical value, edge $<E, (3)>$ is checked. Since it is a single edge argumenting path, it is added to $M$.
-    \item The unchecked node with largest alphabetical value $\in U$ is node $D$.
-    \item The child nodes of $D$ $\in V$ are $\{(2), (5)\}$. With $\delta{(2)} = 1$ and $\delta{(5)} = 3$. Therefore edge $<D, (5)>$ is checked. Since it is a single edge argumenting path, it is added to $M$.
-\end{itemize}
-
-The given \textit{maximal matching} is obtained through the above iteration of \textsc{Hopcroft-Karp} algorithm. The statement is proven by direct example.
+After this iteration, we achieved a matching $M$ which is identical to the maximal matching provided in problem. Thus, through emulation, we have proven the \textsc{Hopcroft-Karp} algorithm is capable of producing the given matching.
 
 \section{Problem 2}
 
-This problem will inherit the labeling and list $M$ introduced by the above problem.
+This problem will inherit the labelling, \ilc{BFS} rule, and list $M$ introduced by the above problem.
 
-For $C, B, A \in U$, all of their child nodes $\in V$ are not free. Thus, we will check for the free nodes $\in U$ for non-single-edged \textit{argumenting paths}.\newline
+For $D, E, F \in U$, all of their conncted nodes $\in V$ are not free. Thus, stipulated by the \textsc{Hopcroft-Karp} algorithm, we will check for the free nodes $\in U$ for non-single-edged \textit{argumenting paths}.\newline
 
-Starting with node $C$, as it has the largest alphabetical value of all free nodes $\in U$. It has two child nodes $\in V$, $\{(4), (5)\}$, both having a degree of $3$. Thus we first check node $(4)$ since it has a lower numerical value. Since we are looking for an \textit{argumenting paths}, the only node we can proceed from $(4)$ is $F$, as it is the only \textit{matching edge} connected to $(4)$. The only node we can proceed from $F$ is $(1)$, as it is the only free node conncted to $F$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{{fig/fig_2.png}}
+    \caption{Obtaining a maximum matching of $G$ from a given maximal matching}
+    \label{fig:1}
+\end{figure}
 
-Now, with DFS from $(1)$, we have discovered an \textit{argumenting paths} of $<C, (4), F, (1)>$. Thus, we remove the \textit{matching edge} $<(4), F>$ from $M$, then add edge $<C, (4)>$ and $<F, (1)>$ to $M$.\newline
+Starting with node $D$, as it has the lowerest alphabetical value of all free nodes $\in U$. It has two child nodes $\in V$, $\{(3), (1)\}$. We first check node $(1)$ as it has a lower numerical value. Since we are looking for an \textit{argumenting paths}, the only node we can proceed from $(1)$ is $A$, as it is the only \textit{matching node} (a node $\in M$) connected to $(1)$. Then, the only node we can proceed from $A$ is $(5)$, as it is the only free node conncted to $A$.
 
-Since there will be no more \textit{argumenting paths} in the graph (as we can't find any more alternating path which starts and ends on free nodes). This $\{ <F, (1)>, <E, (3)>, <D, (5)>, <C, (4)> \}$, with a cardinality of $4$, be the \textit{maximum matching} for the graph.
+Now, we do a \ilc{DFS} from $(5)$ to $D$, we have discovered an \textit{argumenting paths} of $<D, (1), A, (5)>$. Thus, we remove the \textit{matching edge} $<A, (1)>$ from $M$, then add edge $<D, (1)>$ and $<A, (5)>$ to $M$.\newline
+
+Since there will be no more \textit{argumenting paths} in the graph (as we can't find any more alternating path which starts and ends on free nodes). This $\{ <C, (3)>, <B, (2)>, <D, (1)>, <A, (5)> \}$ matching, with a cardinality of $4$, be the \textit{maximum matching} for the graph.
 
 \section{Problem 3}
 
