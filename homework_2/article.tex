@@ -80,6 +80,25 @@ Since there will be no more \textit{argumenting paths} in the graph (as we can't
 
 \section{Problem 3}
 
+Imaging a subgraph $F$ of $G$, which is consisted by and only by edges in $M \sqcup N$ (edges that only $\in M$ or only $\in N$). Since $|M| > |N|$, we know that there must be $M \cap F > N \cap F$. Also for the ease of description, we initialize $M' = M$ and $N' = N$.
+
+We also know that every node in $F$ will either have degree of $1$, where such node belongs and only belongs to $M$ or $N$; or degree of $2$, where such node is connected to an edge in $M$, and also conncted to an edge in $N$. \newline
+
+
+We first inspect edges in $F$. If there is an edge $E \in M$ from $F$ that is a single edge (connected between two degree $1$ nodes), we remove it from $M'$ and add it to $N'$. This will make $|M'| = |M| - 1$ and $|N'| = N + 1$. We may tell that the new $M'$ and $N'$ are still matchings of $G$, due to the fact that for a single edge $\in M \sqcup N$, its two nodes are not connected to any edge of $M \cap N$, thus we won't have two edges of $N'$ sharing a node of $E$.\newline
+
+
+
+If there is no single $E \in M$ from $F$, since $M \cap F > N \cap F$, there must be an alternating path $P$ in $F$ which starts and ends on edges of $M$. We inspect edges on this path: if an edge $EP \in P$ is also in $M$, we remove it from $M'$ and add it to $N'$; vice versa, if an edge $EP \in P$ is also in $N$, we remove it from $N'$ and add it to $M'$. Namely, we swapped the attribution of edges in $P$.
+
+This maneuver will make $|M'| = |M| - 1$ and $|N'| = N + 1$, since path $P$ starts and ends on edges of $M$, there must be one more $M$ edge in $P$ than $N$ edges. Also the new $M'$ and $N'$ are still matchings of $G$, as the start- and end-nodes of path $P$ are not connecting to any edges from $M \cap N$.\newline
+
+
+In both cases, we will have $M \cup N = M' \cup N'$ and $M \cap N = M' \cap N'$. Since we only swapped edge(s) in $M \sqcup N$ -- which won't effect the intersection and union the two matchings.\newline
+
+
+
+
 
 % \section{References}
 %
