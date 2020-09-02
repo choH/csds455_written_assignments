@@ -83,29 +83,38 @@ We know that this alternating path $P_{k-1}$ has traversed $k$ vertices in $A$, 
 The first two cases are essentially same as above, that we can find an argumenting path upon this $P_{k-1}$. The interesting part is in case of $A_T$ being a matched vertex conncted to a matched vertex in $B$, but not in $P_{k-1} \cap B$. Since there are only $k$ non-isolated matched edge in $G$, this $A_T$ can only connect to $B_k$ with an unmatched edge. Since we have a \ilc{matched - unmatched} path on $<B_k, A_k, b$, by connecting this $P_{k-1}$ to $B_k$ with an unmatched graph, we have an argumenting path of $<a, B_1, A_1, ..., A_T, B_k, A_k, b$. Since $<a, B_1, A_1, ..., A_T, B_k, A_k>$ is $P_k$, and we must able to build an argumenting path upon $P_k$, the induction logic is maintained. The statement is therefore proven.
 
 
+\end{proof}
 
-%
-% For $N = 1$, there are only two possible ways of constructing a $T_1$:
-%
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.5\linewidth]{{fig/fig_1.png}}
-%     \caption{Two possible $T_1$ structures}
-%     \label{fig:1}
-% \end{figure}
-%
-% Clearly we may locate an argumenting path from both structures, therefore $T_1$ is true. We assume $T_K$ is true for induction. Note that by adding edge(s) to graphs from $T_K$, we can essentially construct all possible graphs. Since the four things we may do to a bipartite graph are:
-%
-% \begin{itemize}
-%     \item Add unmatched edge between two exsisting vertices.
-%     \item Change matching (but keep the cardinality of matching to be the same).
-%     \item Add another matching edge base on exsisting vertices.
-%     \item Add another matching with extra vertices.
-% \end{itemize}
-%
-% Case 1 is trivial since if a graph $T_k \in T_K$ already have an argumenting path, it will still have it even with the extra unmatched edge. Case 2 is also trivial since the cardinality of the matching is not changed, so every possible matching with cardinality of $k$ is included in $T_K$ already. Case 3
+
+\section{Problem 2}
+
+\textit{I worked on this problem with Yuhui Zhang.\newline}
+
+
+
+We denote $M(G)$ to be the maximum matching of $G$, and $|M(G)|$ to be cardinality of edges of $M(G)$. Let $def(S)$ to be the deficiency of any $S$, which implies $Def(A) = \max_{S \subseteq A} def(S)$.\newline
+
+
+\textbf{Showing $|M(G)| \leq |A| - Def(A)$}
+\begin{proof}
+Let $S' \subseteq A$ to be a set with maximum deficiency. Which implies for any matching $M$, there will be at least $def(S')$ unmatched vertices $\in S'$ (and therefore also $\in A$). This suggests: $|M(G)| \leq |A| - def(S') \Longrightarrow |M(G)| \leq |A| - Def(A)$.
 
 \end{proof}
+
+\textbf{Showing $|M(G)| \geq |A| - Def(A)$}
+\begin{proof}
+Let $M(G) = A - k$ where $k$ being the unmatched vertices in $A$. We may have a $S' \subseteq A$ where $def(S') = k$. Since this is just a single $S' \subseteq A$, there might be another $S'' \subseteq A$ or $S''' \subseteq A$ with greater deficiency. Thus we have:
+
+\begin{align*}
+    \max_{S \subseteq A} def(S) &\geq k \\
+    |A| - k &\geq |A| - \max_{S \subseteq A} def(S) \\
+    |A| - k &\geq |A| - Def(A) \\
+    |M(G)|  &\geq |A| - Def(A)
+\end{align*}
+
+\end{proof}
+
+Since we have $|M(G)| \leq |A| - Def(A)$ and $|M(G)| \geq |A| - Def(A)$, there must be $|M(G)| = |A| - Def(A)$. The statement is therefore proven.
 
 
 % \section{References}
