@@ -53,7 +53,7 @@ Arbitrarily label the given graph $G$ as following. For the ease of description,
 
 As a rule of this \ilc{BFS}, the algorithm will try to match the node with lowest alphabetical value in $U$ to the node with lowest numerical value in $V$. Thus, the algorithm will check on edges $<A, (1)>$, $<B, (2)>$, and $C, (3)$ respectively. Since all of them are single edge argumenting pathes, we add all of them to $M$.
 
-After this iteration, we achieved a matching $M$ which is identical to the maximal matching provided in problem. Thus, through emulation, we have proven the \textsc{Hopcroft-Karp} algorithm is capable of producing the given matching.
+After these iterations, we achieved a matching $M$ which is identical to the maximal matching provided in problem. Thus, through emulation, we have proven the \textsc{Hopcroft-Karp} algorithm is capable of producing the given matching.
 
 \section{Problem 2}
 
@@ -90,7 +90,7 @@ If there is no single $E \in M$ from $F$, since $M \cap F > N \cap F$, there mus
 This maneuver will make $|M'| = |M| - 1$ and $|N'| = N + 1$, since path $P$ starts and ends on edges of $M$, there must be one more $M$ edge in $P$ than $N$ edges. Also the new $M'$ and $N'$ are still matchings of $G$, as the start- and end-nodes of path $P$ are not connecting to any edges from $M \cap N$.\newline
 
 
-In both cases, we will have $M \cup N = M' \cup N'$ and $M \cap N = M' \cap N'$. Since we only swapped edge(s) in $M \sqcup N$ -- which won't effect the intersection and union the two matchings.\newline
+In both cases, we will have $M \cup N = M' \cup N'$ and $M \cap N = M' \cap N'$. Since we only swapped edge(s) in $M \sqcup N$ -- which won't effect the intersection and union of the two matchings.\newline
 
 
 
