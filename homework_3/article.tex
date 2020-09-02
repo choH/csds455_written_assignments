@@ -88,7 +88,7 @@ The first two cases are essentially same as above, that we can find an argumenti
 
 \section{Problem 2}
 
-\textit{I worked on this problem with Yuhui Zhang.\newline}
+\textit{I worked with Yuhui Zhang on this problem.\newline}
 
 
 
@@ -115,6 +115,25 @@ Let $M(G) = A - k$ where $k$ being the unmatched vertices in $A$. We may have a 
 \end{proof}
 
 Since we have $|M(G)| \leq |A| - Def(A)$ and $|M(G)| \geq |A| - Def(A)$, there must be $|M(G)| = |A| - Def(A)$. The statement is therefore proven.
+
+
+\section{Problem 3}
+
+\textit{I worked with Yuhui Zhang on this problem.\newline}
+
+\begin{proof}
+Proving forward of \textit{iff}:
+
+By definition, a graph with a perfect matching must have even number of vertices. This means $|T|$ must be even. Removing a vertex $v \in V(T)$ from this $T$ will left us a connected tree $T'$ (thus one component) with odd number of vertices. This mean there will be $q(T-v) = 1$ for all $v \in V(T)$.
+\end{proof}
+
+\begin{proof}
+Proving backward of \textit{iff}:
+
+Set $M = {e \in E(T)}$ for every $q(T-e) = 2$. This means $e$ must be an edge that connecting two tree components with odd number of vertices. Let $u \in V(T-v)$ to be the vertex adjacent to $v \in V(T)$. This edge $<u, v>$ will be in $M$ as both $T-v$ and $v$ are components with odd number of vertices; specifically, this edge $<u, v>$ will be the only edge in $M$ that is related to $v$. Since this holds true for every $v \in V(T)$, $M$ will be a perfect matching.
+
+\end{proof}
+
 
 
 % \section{References}
