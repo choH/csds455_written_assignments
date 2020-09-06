@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{footnotebackref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{esint}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{wasysym}
+\newcommand{\ilc}{\texttt}
+\usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{changepage}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows.meta,arrows}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+% \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+
+\title{\textbf{CSDS 455: Homework 4}}
+
+\author{Shaochen (Henry) ZHONG, \ilc{sxz517}}
+\date{Due and submitted on 09/07/2020 \\ CSDS 455, Dr. Connamacher}
+\maketitle
+
+\section{Problem 1}
+
+
+\section{Problem 2}
+
+For this question I have consulted:
+\begin{itemize}
+    \item \url{https://math.stackexchange.com/questions/1805181}
+    \item \url{https://math.stackexchange.com/questions/2422069}
+    \item \url{https://math.ryerson.ca/~danziger/professor/MTH607/W08/Labs/lab12-soln.html}
+    \item \url{https://math.stackexchange.com/questions/3681587}
+\end{itemize}
+
+\noindent\textbf{W.T.S. if $G$ is a $k$-regular, bipartite graph that can be decomposed into $r$ factors, then $r$ divides $k$.}
+\begin{proof}
+Since we know that $G$ can be decomposed into $r$ factors, namely, $G$ is $r$-factorable. We may therefore assume that $G$ has $n$ disjoint $r$-factors for $n \in \mathbb{Z}^+$, and the union of these $r$-factors may yield a graph where all of its vertices have a degree of $nr$. This $nr$-regular graph will be the same graph as $G$ (since it is $G$ to be decomposed into $n$ of $r$-factor subgraphs), this means $G$ is a $nr$-regular graph. Since $G$ is known to be $k-regular$, there must be $k = nr$ and the relationship of $r | k$ is demonstrated.
+\end{proof}
+
+
+\noindent\textbf{W.T.S. If $r$ divides $k$, then $G$ is a $k$-regular, bipartite graph that can be decomposed into $r$ factors.}
+
+\begin{proof}
+    \leavevmode\newline
+
+
+    \begin{adjustwidth}{1cm}{}
+
+    \textbf{Lemma: For $G$ being a $k$-regular bipartite graph, $G$ must have a perfect matching $M_1$}.\newline
+
+    \begin{proof}
+        It is because the number of edges connected to each vertex in $G$ is $k$, and for $G$ being a bipartite graph with partition $U$ and $V$, the number of edges associated with set $U$ and $V$ must be $k|U|$ and $k|V|$ respectively. Since every edge is connected from a vertex in $U$ to a vertex in $V$, the total number of edges of from $U$ to $V$ is the same as the number of edges from $V$ to $U$ -- this suggest $k|U| = k|V|$, thus $|U| = |V|$.
+
+        Now we want to show that we may find a matching $M_1$ in $G$ by Hall's theorem, and such matching is also a perfect matching. Assume we have $S \subseteq U$ and let $N(S)$ denotes the neighbors of $S$ in $V$. Since every edges starts from $S$ and ends in $N(S)$, denotes $E(S)$ and $E(N(S))$ to be the edge set of edges connected to $S$ and $N(S)$ respectively. Knowing the total number of edges from $S$ to $V$ (namely, to $N(S)$) is $k|S|$ and the total number of edges from $N(S)$ to $U$ is $k|N(S)|$, there must be $k|N(S)| \geq k|S|$ since edges from $N(S)$ to $U$ includes edges from $S \subseteq U$ to $N(S)$.
+
+        This implies $|S| \leq |N(S)|$, then the Hall's condition is achieved and we have a matching of $M_1$ with $|E(M_1)| = |U|$. Since we have previously proven that $|U| = |V|$, and the union of $U$ and $V$ yields all vertices of $G$; $M_1$ has matched every vertex of $G$ and it is therefore a perfect matching of $G$.\newline
+    \end{proof}
+\end{adjustwidth}
+
+Now with the lemma proven, by the nature of perfect matching $M_1$ must be a $1$-factor of $G$. We denote $G_1 = G - M_1$. This $G_1$ is a $k-1$-regular graph since every vertex of $G$ has decrease a degree of $1$; and this $G_1$ is still bipartite as deletion of edges will not affect the bipartite property. Refer to the above lemma, this $G_1$, being a $k-1$-regular bipartite graph, must have a perfect matching as well (denotes as $M_2$). Following the induction, we may have $G_2 = G_1 - M_2$, $G_3 = G_2 - M_3$... till $G_r = G_{r-1} - M_r = G - M_1 - M_2 - ... - M_r$ being a $(k-r)$-regular graph.\newline
+
+Since $M_1$, $M_2$, ... , $M_r$ are all $1$-factors of $G$, a union of these $M$s may yield a $r$-factor of $G$ and we have showed $G$ has a $r$-factor. Since we know that $r | k$ for $nr = k$ for $n \in \mathbb{Z}^+$, now we keep removing $r$-factors from this $G_r$ (by removing $r$ number of $1$-factors at each time), there must be a $G_{nr} = \emptyset$ with $n$ number of $r$-factors being removed from $G$. We have showed that for $r | k$, $G$ is a $k$-regular, bipartite graph that can be decomposed into $r$ factors.
+
+\end{proof}
+
+
+
+
+
+
+\section{Problem 3}
+
+
+
+
+% \section{References}
+%
+% \nocite{*}
+% \raggedright
+% \bibliography{references.bib}
+% \bibliographystyle{plain}
+
+
+\end{document}
