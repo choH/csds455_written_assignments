@@ -119,7 +119,7 @@ Since we have $|M(G)| \leq |A| - Def(A)$ and $|M(G)| \geq |A| - Def(A)$, there m
 
 \section{Problem 3}
 
-\textit{I worked with Yuhui Zhang on this problem.\newline}
+\textit{I consulted \url{http://www.sfu.ca/~mdevos/345/homework6_sol.pdf} for this problem.\newline}
 
 \begin{proof}
 Proving forward of \textit{iff}:
@@ -130,7 +130,13 @@ By definition, a graph with a perfect matching must have even number of vertices
 \begin{proof}
 Proving backward of \textit{iff}:
 
-Set $M = {e \in E(T)}$ for every $q(T-e) = 2$. This means $e$ must be an edge that connecting two tree components with odd number of vertices. Let $u \in V(T-v)$ to be the vertex adjacent to $v \in V(T)$. This edge $<u, v>$ will be in $M$ as both $T-v$ and $v$ are components with odd number of vertices; specifically, this edge $<u, v>$ will be the only edge in $M$ that is related to $v$. Since this holds true for every $v \in V(T)$, $M$ will be a perfect matching.
+We know that $|V(T)|$ must be even, as otherwise we will have $q(T-v) = 0$, which is a contradiction of the condition. We represent this finding as $|V(T)| = 2k$, $k \in \mathbb{Z}^+$. For $k = 1$, we have $|V(T)| = 2$, which clearly have a perfect matching.\newline
+
+From the base case, we assume that there will be at least one perfect matching for every $|V(T)| < 2k$ ($k \in \mathbb{Z}^+$). We want to show that this is also the true for $|V(T)| = 2k$.
+
+We locate a leaf $\ell$ of $v$ for all $v \in V(T)$, we know that $|T - v - \ell|$ will have even number of components because $|T|$ is $2k$. This means $|T - v - \ell| = 2k - 2 = 2(k-1) < 2k$, thus $T - v - \ell$ has a perfect matching by it own. Now we inspect vertex $v$ and $\ell$, by connecting an edge $<v, \ell>$, this will be another perfect matching. Now every vertex in $T - v - \ell$ are matched in a perfect matching, plue vertex $v$ and $\ell$ are also matached in a perfect matching. We combine these two perfect matching, there will be a perfect matching for every $|V(T)| = 2k$.
+
+Since a perfect is found for $|V(T)| < k$ and $|V(T)| = 2k$, with $k \in \mathbb{Z}^+$ and $q(T-v) = 1$. We conclude that there will be a perfect matching for every $T$ with $q(T-v) = 1$ by induction.
 
 \end{proof}
 
