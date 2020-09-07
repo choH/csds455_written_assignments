@@ -97,7 +97,52 @@ Since $M_1$, $M_2$, ... , $M_r$ are all $1$-factors of $G$, a union of these $M$
 \section{Problem 3}
 
 
+For this question I consulted \url{https://math.stackexchange.com/questions/520203}. I also borrowed the below visual aid from \textit{Elchanan Solomon} who contributed to the above webpage.
 
+
+
+\begin{proof}
+\leavevmode\newline
+
+To construct a $k$-regular graph with no prefect matching. For $k$ being even, we can simply construct a complete graph of $k+1$ vertices -- since every vertex is connected to $k$ other vertices, this is a $k$-regular graph -- as the graph has $k+1$ vertices, it has no prefect matching.
+
+For $k$ being odd and $k>1$, we will need help from the below lemma.
+
+    \begin{adjustwidth}{1cm}{}
+
+    \textbf{Lemma - Tutte's Theorem (simplified, one direcons): If a simple graph $G$ has a $1$-factor, then there must be $o(G-S) \leq |S|$ for any $S \subseteq V(G)$; where $o(G-S)$ denotes the number of odd components in graph $G-S$.}\newline
+
+    \begin{proof}
+        If $G$ has a $1$-factor $M$, then for every odd component $G_o$ of $G-S$ (for $S \subseteq V(G)$), there must be $o(G-S) \leq |S|$. It is because any $G_o$ cannot have any prefect matching (as perfect matching requires even number of vertices), then there must be a vertex $w$ in each $G_o$ that is connected to a vertex in $S$ (denotes this vertex as $S_w$). And this edge $<w, S_w>$ must be in $M$ as otherwise this $w$ will be unmatched.
+
+        As matching is an one-to-one relationship, $o(G-S)$ number of $w$s must be matched to $o(G-S)$ number of $S_w$s. This implies $o(G-S) \leq |S|.$
+    \end{proof}
+    \end{adjustwidth}
+
+Now to construct the graph $G$. We start with an initial node $u$ and branch out $k$ edges out of it, thus we have $|N(u)| = k$. Now for each $v \in N(u)$, we branch out $k-1$ edges out of it. Then for each $w \in N(v)$, we make a single vertex $w'$ ($\deta{(q)} = 0$) along side the $w$. After all $w'$s are made under a $v$, we fully connect $w$s with $w'$s and then internaly connect each $w'$ to another $w'$. We do it repreatly for next $v$ until this is done to all $v \in N(u)$.\newline
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{{fig/fig_p3.png}}
+    \caption{Demo of $G$ for $k = 5$ (modified work based on Elchanan Solomon's diagram)}
+    \label{fig:1}
+\end{figure}
+
+This $G$ will be a $k$-regular graph because: $u$ branch out for $k$ edges, $\delta{(u)} = k$; every $v$ branch out $k-1$ edges and connected to $u$, therefore $\forall \delta{(v)} = k$; every $w$ is connected to $k-1$ number of $w'$ and also to a $v$, so $\forall \delta{(w)} = k$; finally, every $w'$ is connected to $k-1$ number of $w$ and also to another $w'$, therefore $\forall \delta{(w')} = k$.\newline
+
+Now if we let this $u$ to be $S$, and for $G-S$ we have all $k$ compoments left. All of these components (lead by $v \in N(u)$) are odd components, as:
+
+\begin{equation}
+    k-1 + k-1 + 1 = 2k-1
+\end{equation}
+
+For $k$ being odd, $2k-1$ must be odd. This voids the above lemma since the contrapositive of lemma ``\textit{$G$ has a $1$-factor $\longrightarrow$ $o(G-S) \leq |S|$ for any $S \subseteq V(G)$}'' is  ``\textit{$o(G-S) > |S|$ for any $S \subseteq V(G)$ $\longrightarrow$ $G$ has a no $1$-factor}.''
+
+Now we have $|S| = 1$ but $o(G-S) = k$ (known that $k > 1$), thus $G$ has no $1$-factor and therefore has no perfect matching. \newline
+
+We have demonstrated there is a way to construct a $k$-regular graph $G$ for both $k$ being even and odd (for $k>1$), thus there is a way to construct such graph $G$ for all $k > 1$ for $k \in \mathbb{Z}^+$.
+
+\end{proof}
 
 % \section{References}
 %
