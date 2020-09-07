@@ -58,7 +58,7 @@ For this question I have consulted:
     \item \url{https://math.stackexchange.com/questions/3681587}
 \end{itemize}
 
-\noindent\textbf{W.T.S. if $G$ is a $k$-regular, bipartite graph that can be decomposed into $r$ factors, then $r$ divides $k$.}
+\noindent\textbf{W.T.S. If $G$ is a $k$-regular, bipartite graph that can be decomposed into $r$ factors, then $r$ divides $k$.}
 \begin{proof}
 Since we know that $G$ can be decomposed into $r$ factors, namely, $G$ is $r$-factorable. We may therefore assume that $G$ has $n$ disjoint $r$-factors for $n \in \mathbb{Z}^+$, and the union of these $r$-factors may yield a graph where all of its vertices have a degree of $nr$. This $nr$-regular graph will be the same graph as $G$ (since it is $G$ to be decomposed into $n$ of $r$-factor subgraphs), this means $G$ is a $nr$-regular graph. Since $G$ is known to be $k-regular$, there must be $k = nr$ and the relationship of $r | k$ is demonstrated.
 \end{proof}
@@ -85,7 +85,7 @@ Since we know that $G$ can be decomposed into $r$ factors, namely, $G$ is $r$-fa
 
 Now with the lemma proven, by the nature of perfect matching $M_1$ must be a $1$-factor of $G$. We denote $G_1 = G - M_1$. This $G_1$ is a $k-1$-regular graph since every vertex of $G$ has decrease a degree of $1$; and this $G_1$ is still bipartite as deletion of edges will not affect the bipartite property. Refer to the above lemma, this $G_1$, being a $k-1$-regular bipartite graph, must have a perfect matching as well (denotes as $M_2$). Following the induction, we may have $G_2 = G_1 - M_2$, $G_3 = G_2 - M_3$... till $G_r = G_{r-1} - M_r = G - M_1 - M_2 - ... - M_r$ being a $(k-r)$-regular graph.\newline
 
-Since $M_1$, $M_2$, ... , $M_r$ are all $1$-factors of $G$, a union of these $M$s may yield a $r$-factor of $G$ and we have showed $G$ has a $r$-factor. Since we know that $r | k$ for $nr = k$ for $n \in \mathbb{Z}^+$, now we keep removing $r$-factors from this $G_r$ (by removing $r$ number of $1$-factors at each time), there must be a $G_{nr} = \emptyset$ with $n$ number of $r$-factors being removed from $G$. We have showed that for $r | k$, $G$ is a $k$-regular, bipartite graph that can be decomposed into $r$ factors.
+Since $M_1$, $M_2$, ... , $M_r$ are all $1$-factors of $G$, a union of these $M$s may yield a $r$-factor of $G$ and we have showed $G$ has a $r$-factor. Since we know that $r | k$ for $nr = k$ for $n \in \mathbb{Z}^+$, now we keep removing $r$-factors from this $G_r$ (by removing $r$ number of $1$-factors at each time), there must be a $E(G_{nr}) = \emptyset$ with $n$ number of $r$-factors being removed from $G$. This is same as saying an union of $n$ number of $r$-factors may yield $G$, and we have therefore showed that for $r | k$, $G$ is a $k$-regular, bipartite graph that can be decomposed into $r$ factors.
 
 \end{proof}
 
