@@ -60,7 +60,7 @@ Since we asssume $G'$ has a one factor, denotes a 1-factor $M_1$ for $G+uv$, and
 
 Let even cycle $C_1 \in F$ contains $uv$ but not $wz$, and even cycle $C_2 \in F$ contains $wz$ but not $uv$. Due to the even cycle nature, we can always find a 1-factor of $C_1$ without taking $uv$ as a match (say the 1-factor of $C_1$ with $uv$ being a matched edge is $M_{uv}$, the alternative 1-factor would be $C_1 - M_{uv}$); same goes to $C_2$ by not taking $wz$ as a match. Since we can do this to every $C \in F$, this suggests if $G'$ may have a 1-factor with an extra edge $e$, so does $G$ -- the contradiction is found in this case.
 
-However, it is possible to have an even cycle $C \in F$ which contains both $uv$ and $wz$ at the same time. Known that there is $uw, vw \in E(G)$, let path $P_1 \in C$ to be between $w$ and $u$, and $P_2 \in C$ to be between $w$ and $v$. For $N_1 = E(P_1) \cap M_1$ and $N_2 = E(P_1) \cap M_2$, we have $(N_1 \cup \N_2 \cup \ \{wu\})  \ \cup \ (M_1 - E(C))$ being a 1-factor of $G$. Again, since we can do this to every compunent $C \in F$, we can always find a 1-factor of $G$ in this case.\newline
+However, it is possible to have an even cycle $C \in F$ which contains both $uv$ and $wz$ at the same time. Known that there is $uw, vw \in E(G)$, let path $P_1 \in C$ to be between $w$ and $u$, and $P_2 \in C$ to be between $w$ and $v$. For $N_1 = E(P_2) \cap M_1$ and $N_2 = E(P_1) \cap M_2$, we have $(N_1 \cup \N_2 \cup \ \{wu\})  \ \cup \ (M_1 - E(C))$ being a 1-factor of $G$. Again, since we can do this to every compunent $C \in F$, we can always find a 1-factor of $G$ in this case.\newline
 
 Since a contradiction can be found in all possible cases, the statement is proven by contradiction.
 
