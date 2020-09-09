@@ -52,7 +52,7 @@
 
 We assume $G$ to be the maximal counterexample as it has no 1-factor, but having $G' = G+e$ will have a 1-factor. Since $q(G'-S) \leq q(G-S)$ (we know this from \textit{Class 5 Pratice: Q1}), the Tutte's condition is still satisfied. We want to show a contradiction of if $G'$ can have a 1-factor, so does $G$.\newline
 
-Let $U$ be the set of vertices in $G$ with degree $|V(G)-1$ (every vertex if $V$ connected to every other vertices in $G$). If $G-U$ are consist of disjoint complete graphs, then $q(G-U) \leq |U|$. We can find a perfect matching out of it by finding 1-factor from each even component, and connect $1$ unmatched vertex in each odd component to one vertext $U$, then connect the unmacthed vertices in $U$ to each other (we know this from \textit{Class 5 Pratice: Q2}).\newline
+Let $U$ be the set of vertices in $G$ with degree $|V(G)-1$ (every vertex if $V$ connected to every other vertices in $G$). If $G-U$ are consist of disjoint complete graphs, then $q(G-U) \leq |U|$ (because a component is formed by removing a vertex $\in U$ from the connection). We can find a perfect matching out of it by finding 1-factor from each even component, and connect $1$ unmatched vertex in each odd component to one vertext $U$, then connect the unmacthed vertices in $U$ to each other (we know this from \textit{Class 5 Pratice: Q2}).\newline
 
 If $G-U$ are not disjoint union of complete graphs, there must be vertices $u, v$ which are in the same component of $G-U$, both conncted to a vertex $w$, but not adjacent to each other. This means we have $uw, uw \in E(G)$, but not $uv$. Now we locate a vertex $z$ under the same component of $\in G-U$ and there is no edge $wz$, there must be one as otherwise $z$ will be in $U$.
 
