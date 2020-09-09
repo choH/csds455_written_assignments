@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{footnotebackref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{esint}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{wasysym}
+\newcommand{\ilc}{\texttt}
+\usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{changepage}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows.meta,arrows}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+% \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+
+\title{\textbf{CSDS 455: Homework 5}}
+
+\author{Shaochen (Henry) ZHONG, \ilc{sxz517}}
+\date{Due and submitted on 09/09/2020 \\ CSDS 455, Dr. Connamacher}
+\maketitle
+
+\section{Problem 1}
+
+\textit{For this quetion I have consulted \url{http://ion.uwinnipeg.ca/~ychen2/advancedAD/notes-March15.pdf} and \url{https://math.la.asu.edu/~andrzej/teach/mat416/proofs3.pdf}.}\newline
+
+
+We assume $G$ to be the maximal counterexample as it has no 1-factor, but having $G' = G+e$ will have a 1-factor. Since $q(G'-S) \leq q(G-S)$ (we know this from \textit{Class 5 Pratice: Q1}), the Tutte's condition is still satisfied. We want to show a contradiction of if $G'$ can have a 1-factor, so does $G$.\newline
+
+Let $U$ be the set of vertices in $G$ with degree $|V(G)-1$ (every vertex if $V$ connected to every other vertices in $G$). If $G-U$ are consist of disjoint complete graphs, then $q(G-U) \leq |U|$. We can find a perfect matching out of it by finding 1-factor from each even component, and connect $1$ unmatched vertex in each odd component to one vertext $U$, then connect the unmacthed vertices in $U$ to each other (we know this from \textit{Class 5 Pratice: Q2}).\newline
+
+If $G-U$ are not disjoint union of complete graphs, there must be vertices $u, v$ which are in the same component of $G-U$, both conncted to a vertex $w$, but not adjacent to each other. This means we have $uw, uw \in E(G)$, but not $uv$. Now we locate a vertex $z$ under the same component of $\in G-U$ and there is no edge $wz$, there must be one as otherwise $z$ will be in $U$.
+
+Since we asssume $G'$ has a one factor, denotes a 1-factor $M_1$ for $G+uv$, anda 1-factor $M_2$ for $G+wz$. Let $F = M_1 \Delta M_2$, we must have $uv, wz \in F$ as they are only in $M_1$ or $M_2$, never both. This suggests $F$ is consisted by every even cycle of $G$ which traversed through all $V(G)$.\newline
+
+Let even cycle $C_1 \in F$ contains $uv$ but not $wz$, and even cycle $C_2 \in F$ contains $wz$ but not $uv$. Due to the even cycle nature, we can always find a 1-factor of $C_1$ without taking $uv$ as a match (say the 1-factor of $C_1$ with $uv$ being a matched edge is $M_{uv}$, the alternative 1-factor would be $C_1 - M_{uv}$); same goes to $C_2$ by not taking $wz$ as a match. Since we can do this to every $C \in F$, this suggests if $G'$ may have a 1-factor with an extra edge $e$, so does $G$ -- the contradiction is found in this case.
+
+However, it is possible to have an even cycle $C \in F$ which contains both $uv$ and $wz$ at the same time. Known that there is $uw, vw \in E(G)$, let path $P_1 \in C$ to be between $w$ and $u$, and $P_2 \in C$ to be between $w$ and $v$. For $N_1 = E(P_1) \cap M_1$ and $N_2 = E(P_1) \cap M_2$, we have $(N_1 \cup \N_2 \cup \ \{wu\})  \ \cup \ (M_1 - E(C))$ being a 1-factor of $G$. Again, since we can do this to every compunent $C \in F$, we can always find a 1-factor of $G$ in this case.\newline
+
+Since a contradiction can be found in all possible cases, the statement is proven by contradiction.
+
+
+
+
+
+
+
+
+\section{Problem 2}
+
+% \section{References}
+%
+% \nocite{*}
+% \raggedright
+% \bibliography{references.bib}
+% \bibliographystyle{plain}
+
+
+\end{document}
