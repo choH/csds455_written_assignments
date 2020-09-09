@@ -77,7 +77,7 @@ Since a contradiction can be found in all possible cases, the statement is prove
 
 $\Longrightarrow$: For $G$ containing a $k$-factor, every $A(v) $must be connected to $k$ other vertices in other $A$ partitions. Thus, $d(v) - k$ vertices will have a perfect matching with vertices in $B(v)$. Combine edges of partitions by traverse through different vertices in $G$, we have a perfect matching for $H$, thus $H$ has a 1-factor.\newline
 
-$\Longleftarrow$: For $H$ having a 1-factor, every vertices in every $B(v)$ will matched to $d(v)-k$ vertices in its corresponding $A(v)$. By removing all the matched edges and vertcies, we have $|A(v)| = d(v) - (d(v) - k) = k$ for every $v \in G$. This implies that every vertex in $G$ are conncted to $k$ other vertices in $G$, which suits the definition of having a $k-factor$.
+$\Longleftarrow$: For $H$ having a 1-factor, every vertices in every $B(v)$ will matched to $d(v)-k$ vertices in its corresponding $A(v)$. By removing all the matched edges and vertcies, we have $|A(v)| = d(v) - (d(v) - k) = k$ for every $v \in G$. This implies that every vertex in $G$ are at least conncted to $k$ other vertices in $G$. Taking these connections, we will have $k-factor$ in $G$.
 
 
 % \section{References}
