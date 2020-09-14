@@ -80,6 +80,21 @@ Note the lemma is proved based on the assumption of a graph having distinct edge
 
 \section*{Problem 3}
 
+\begin{proof}
+
+    To prove by counterexample: Assume we have the graph directed graph with negative edge weight of the following.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\linewidth]{{fig/fig_p3.png}}
+        \label{fig:1}
+    \end{figure}
+
+    Staring from $S$ as the source, the first iteration of \textsc{Dijkstra}  will give us $S{0}; \ X: {5, S}; \ Y: {1, S}$ with $S$ removed from unvisited nodes. As $Y$ has the shortest cost from all unvisited nodes, we will start our second iteration from $Y$. Which will give us the same $S{0}; \ X: {5, S}; \ Y: {1, S}$, as $Y$ has no neighbor, with $X, Y$ removed from unvisited nodes. Now we start our third iteration with our only unvisited node $X$, since there are no other unvisited node, the iteration will stop with the same $S{0}; \ X: {5, S}; \ Y: {1, S}$.\newline
+
+    This \textsc{Dijkstra}'s algorithm produce a spanning tree of node sequence of $\{ <S, Y>, <S, X> \}$ with a total tree weight of $5 + 1 = 6$. However, the actual shortest spanning tree should be $\{<S, X>, <X, Y>\}$ with a tree weight of $5 - 10 = -5$. As $-5 < 6$, this counterexample has proven the statement.
+
+\end{proof}
 
 
 \section*{Problem 4}
