@@ -53,7 +53,30 @@ We have $rad(G) \leq diam(G)$ proven by definition. Now locate vertices $u, v \i
 
 \section*{Problem 2}
 
+\begin{proof}
 
+The question is essentially same as proving that the Prim's algorithm produced tree $P$ is a minimum weight spanning tree of $G$. This is because if $T$ is a minimum weight spanning tree of $G$ with a weight of $W$, by doing the equal-weight-edge-replacements on $T$ to make $T', T'', T'''$... we will eventually have a replaced version of $T$ that is same as $P$, as both $T$ and $P$ (if being a minimum weight spanning tree of $G$) have a weight of $W$.
+
+\leavevmode\newline
+
+
+    \begin{adjustwidth}{1cm}{}
+
+    \textbf{Lemma (Cut Property): Assume $S \in V(G)$ with $G$ being a graph with distinct edge weights. If the minimum cost edge between $V-S$ and $S$ is $e$, this edge $e$ must be contained in the minimum weight spanning tree of $G$}.\newline
+    \begin{proof}
+    To prove by contradiction: Denote the minimum weight spanning tree of $G$ to be $M$ and assume edge $e$ is not in it. This means there must be some other edge $e'$ that connects $V$ to $V-S$. Since we know that $w(e) < w(e')$ and $M$ is connected, $M - e' + e'$ will another spanning tree of $G$ and has a lower weight. This contradicts the assumption of $M$ being a minimum weight spanning tree of $G$, and the statement is therefore proven.
+    \end{proof}
+    \end{adjustwidth}
+
+With the lemma proven. Now assume $P$ is not a minimum weight spanning tree of $G$ and traverse through the sequences of vertices of $P$ and $T$. Let $P_{k+1} \subseteq P$ denotes the first tree that has an edge that is not contained in $T$ (as in $P$, it went from its $k$-th vertex $x$ to $(k+1)$-th vertex $y$; but in $T$, it went from its $k$-th vertex $x$ to $(k+1)$-th vertex $z$). \newline
+
+Now we denotes $P_k = P_{k+1} - y$, and edge $<x, y>$ to be the minimum edge from $P_k$ to $V - P_k$ (as it is defined by the mechanism of Prim's algorithm). By lemma, this edge $<x, y>$ must be in the minimum weight spanning tree $T$. However, $<x, y>$ is not in $T$ as $T$ should chose edge $<x, z>$. This contradicts the setting and our assumption of $P$ is not a minimum weight spanning tree of $G$ is therefore voided.
+
+Since at the beginning we have estalished that proving $P$ to be a minimum weight spanning tree of $G$ is equivalent to the proposed statement. The statment is therefore proven.\newline
+
+Note the lemma is proved based on the assumption of a graph having distinct edge weights. However, this may not be true for the proposed $G$. Which would suggest a minimal cost edge $e$ may not been chosen to connect $V$ to $V-S$ as an alternative edge $e''$ with $w(e'') = w(e)$ is chosen. However, this won't effect the conclusion as as long as $P$ has the same weight of a minimum weight spanning tree, we may convert $T$ to $P$ by doing the equal-weight-edge-replacement manuver.
+
+\end{proof}
 
 \section*{Problem 3}
 
