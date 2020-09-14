@@ -108,7 +108,7 @@ It is my understaning that I can produce a spanning tree of $G$ with the \textsc
 
 We want to show that for any arbitrarily selected $v \in V(G)$, there should be $w(P_{sv}) \geq d_T(v)$, where $P_{sv}$ can be any path from $s$ to $v$.  We will show this be using induction on number of edges in $P_{sv}$.
 
-For $n = 1$, the assumption is trivially true as there is only one egde from $s$ to $v$ in $G$, so of course this $w(P_sv_1) = d_T(v)$. Assume this is also true for $k$ edges: which means if the last of $k$-edged $P_{sv}$ is $v_k$, we have $w(P_{sv_k}) \geq d_T(v_k)$.
+For $n = 1$, the assumption is trivially true as there is only one egde from $s$ to $v$ in $G$, so of course there is $w(P_sv_1) = d_T(v)$. Assume this is also true for $k$ edges: which means if the last of $k$-edged $P_{sv}$ is $v_k$, we have $w(P_{sv_k}) \geq d_T(v_k)$.
 
 Now let $P_{sv_{k+1}}$ to be a path with $k+1$ edges, where $P_{sv_{k+1}} = P_{sv_k} + (v_k, v_{k+1})$. There must be:
 
@@ -116,7 +116,7 @@ Now let $P_{sv_{k+1}}$ to be a path with $k+1$ edges, where $P_{sv_{k+1}} = P_{s
     w(P_{sv_{k+1}}) = w(P_{sv_k}) + d(v_k, v_{k+1}) \geq d_T(v_k) + d(v_k, v_{k+1}) \geq d_T(v_{k+1})
 \end{equation*}
 
-As otherwise we void the $d(u) + d(u, v) \geq d(v)$ requirement and should keep iterating the \textsc{Bellman-Ford} algorithm with more \textsc{Ford} step(s). As $v_k$ and $v_{k+1}$ can be any two adjacent nodes in $V(G) - s$, and with the statement of $w(P_{sv_k}) \geq d_T(v_k)$ to be true for both $1, k$ and $k+1$ cases, we have proven the statement to be true.
+As otherwise we void the $d(u) + d(u, v) \geq d(v)$ requirement and should keep iterating the \textsc{Bellman-Ford} algorithm with more \textsc{Ford} step(s). As $v_k$ and $v_{k+1}$ can be any two adjacent nodes in $V(G) - s$, and with the statement of $w(P_{sv_k}) \geq d_T(v_k)$ to be true for both $1$, $k$, and $k+1$ cases, we have proven the statement to be true.
 
 \end{proof}
 
