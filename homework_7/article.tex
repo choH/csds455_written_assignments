@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{footnotebackref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{esint}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{wasysym}
+\newcommand{\ilc}{\texttt}
+\usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{changepage}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows.meta,arrows}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+% \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+
+\title{\textbf{CSDS 455: Homework 7}}
+
+\author{Shaochen (Henry) ZHONG, \ilc{sxz517}}
+\date{Due and submitted on 09/16/2020 \\ Fall 2020, Dr. Connamacher}
+\maketitle
+
+\section*{Problem 1}
+
+\textit{I consulted \url{https://math.stackexchange.com/questions/666997/} for this problem.}\newline
+
+With the Cayley's Formula (learned on Monday's class), we know that a $K_n$ graph will have $n^{n-2}$ spanning trees. We may create a bipartite graph with partitions $T, E$ where each node $t \in T$ represent a spanning tree of $K_n$, and each $e \in E$ represent an edge in $K_n$. Then we connect these two partitions if $e \in E(t)$.
+
+It is known that each spanning tree of $K_n$ has $n-1$ edges, and we know that there are $n^{n-2}$ nodes $\in T$. Therefore the bipartite graph will have $(n-1) \cdot n^{n-2}$ edges. \newline
+
+Due the nature of $K_n$, every edge of it is equivalent to another; this implies the number of spanning trees containing an edge will be the same as the number of spanning trees containing any other edge. Therefore each edge is contained by $\frac{(n-1) \cdot n^{n-2}}{{n \choose 2}} = 2n^{n-3}$ (as there are ${n \choose 2}$ edges in $K_n$). We substract this number from the total number of spanning tree of $K_n$, which is same as removing an edge $e$ from $K_n$, and there will be $ n^{n-2} - 2n^{n-3} = (n-2)n^{n-3}$ spanning tree left in $K_n - e$.
+
+\section*{Problem 2}
+
+% \section{References}
+%
+% \nocite{*}
+% \raggedright
+% \bibliography{references.bib}
+% \bibliographystyle{plain}
+
+
+\end{document}
