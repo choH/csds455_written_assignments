@@ -57,6 +57,37 @@ Due the nature of $K_n$, every edge of it is equivalent to another; this implies
 
 \section*{Problem 2}
 
+There will be infinite number of classes. First it is easy to tell if edge $uv$ is not in the spanning tree, we may have two classes of spanning trees with the first class starts from $\chi u$, and the second from $\chi v$.\newline
+
+However the interesting part is if $uv$ is contained in the spanning tree. For the ease of description let $d(uv) = 2m$, $d(u, \chi) = m + x$ ($x \geq 0$), and $y > 0$, we may have the below base cases:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\linewidth]{{fig/fig_p2_1.png}}
+    \label{fig:1}
+\end{figure}
+
+For $T_1$, assume $\chi$ is in the middle of $uv$ (which implies $x = 0$), in this case we shall have $d(\chi \rightarrow u \rightarrow A \rightarrow C) = m + 2m + 1 = 3m + 1$ and $d(\chi \rightarrow v \rightarrow B \rightarrow C) = m + 2m + y + 1 = 3m + y + 1$. So clearly we should connect $C$ to $A$, and we have $d_{T_1}(u, C) = 2m + 1$.
+
+However, if we let $d(u, \chi) > d(v, \chi)$ on $uv$, to a point that $x > y$ in $T_2$. In this case we shall have $d(\chi \rightarrow u \rightarrow A \rightarrow C) = 3m + x + 1$ and $d(\chi \rightarrow v \rightarrow B \rightarrow C) = m - x + 2m + y + 1 = 3m - x + y + 1 < 3m + 1$. So we should connect $C$ to $B$, and $d_{T_2}(u, C) = 2m + 2m + y + 1 = 4m + 1 \neq d_{T_1}(u, C)$ \newline
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{{fig/fig_p2_2.png}}
+    \label{fig:1}
+\end{figure}
+
+Since it is known that once this $x > y$ condition is established, the shortest path tree must detach $C$ from $A$ and connect it to $B$, this will make a new shortest path tree $T_n$ with $d_{T_n}(u, C) \neq d_{T_1}(u, c)$.
+
+Note that we may have infinite edges like $vB$ and vertices like $C$; e.g. $vB_n$ and $C_n$, with a length of $d(v, B_n) = 2m + y_n$ , $d(B_n, C_n) = 1$, and $d(A, C_n) = 1$. And as we increase the value of $x$ on $d(u, \chi)$ (a.k.a moving $\chi$ passes midpoint of $uv$ and towards $v$ to make $\chi', \chi'',\chi''', ..., \chi_n$) to be $x_n$, we may find infinite pairs of $(x_n, y_n)$ where $x_n > y_n$, and thus we have infinite classes of non-equivalent spanning trees.\newline
+
+
+
+
+
+
+
+
 % \section{References}
 %
 % \nocite{*}
