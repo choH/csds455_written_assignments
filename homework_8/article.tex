@@ -46,9 +46,11 @@
 \maketitle
 
 \section*{Problem 1}
-\textbf{W.T.S $\lambda(G) \leq \delta(G)$:} Let $v \in V(G)$ with $\delta(v) = \delta(G)$, this suggest by removing every edges connected to $v$ we can clearly have disconncted part (the isolated $v$). This suggest $\lambda(G) = \delta(G)$.
+\textbf{W.T.S $\lambda(G) \leq \delta(G)$:}
 
-However it is possible to have $\delta(V) < \delta(G)$, in the below example we have $\delta(G) = 2$, however by simply remove the $AB$ edge we can have a disconncted graph. Thus, $\lambda(G) \leq \delta(G)$.
+Let $v \in V(G)$ with $\delta(v) = \delta(G)$, this suggest by removing every edges connected to $v$ we can clearly have disconnected part (the isolated $v$). This suggest $\lambda(G) = \delta(G)$.
+
+However it is possible to have $\delta(V) < \delta(G)$, in the below example we have $\delta(G) = 2$, however by simply remove the $AB$ edge we can have a disconnected graph. Thus, $\lambda(G) \leq \delta(G)$.
 
 \begin{figure}[H]
     \centering
@@ -56,9 +58,9 @@ However it is possible to have $\delta(V) < \delta(G)$, in the below example we 
     \label{fig:1_1}
 \end{figure}
 
-\textbf{W.T.S $\kappa(G) \leq \lambda(G)$:}
+\noindent\textbf{W.T.S $\kappa(G) \leq \lambda(G)$:}
 
-We know that we may have $\kappa(G) = \lambda(G)$ in a sense of $P2$ (two-vertex line), where to break it into a disconncted graph we will have $\kappa(G) = \lambda(G)$. However, it is possible to have $\kappa(G) < \lambda(G)$. In the below example we will need to remove edge $AC$ and $CB$ to make $G$ disconncted, which suggest $\lambda(G) = 2$; but we can also make $G$ disconncted by removing $C$, which yields a $\kappa(G) = 1$. Thus, we have $\kappa(G) \leq \lambda(G)$.\newline
+We know that we may have $\kappa(G) = \lambda(G)$ in a sense of $P2$ (two-vertex line), where to break it into a disconnected graph we will have $\kappa(G) = \lambda(G)$. However, it is possible to have $\kappa(G) < \lambda(G)$. In the below example we will need to remove edge $AC$ and $CB$ to make $G$ disconnected, which suggest $\lambda(G) = 2$; but we can also make $G$ disconnected by removing $C$, which yields a $\kappa(G) = 1$. Thus, we have $\kappa(G) \leq \lambda(G)$.\newline
 
 \begin{figure}[H]
     \centering
@@ -66,7 +68,7 @@ We know that we may have $\kappa(G) = \lambda(G)$ in a sense of $P2$ (two-vertex
     \label{fig:1_2}
 \end{figure}
 
-Combine with the above to findings, we have $\kappa(G) \leq \lambda(G) \leq \delta(G)$.
+Combine with the above findings, we have $\kappa(G) \leq \lambda(G) \leq \delta(G)$.
 
 \section*{Problem 2}
 
