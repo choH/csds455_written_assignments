@@ -69,6 +69,14 @@ We know that we may have $\kappa(G) = \lambda(G)$ in a sense of $P2$ (two-vertex
 Combine with the above to findings, we have $\kappa(G) \leq \lambda(G) \leq \delta(G)$.
 
 \section*{Problem 2}
+
+With a 1-dimentional cube, which is a line, the connectivity is trivially 1. With a 2-dimentional cube, which is a square, the connectivity is 2 (removing two non-adjacient vertices). For the base of induction, we assume a $d$-dimentional cube has a connectivity of $d$.
+
+Since we can build a $d+1$-dimentional cube with two $d$-dimentional cubes, and do a perfect matching between them. This suggest $d+1$-dimentional cube has a connectivity of $d+1$. As one $d$-dimentional cube, needs to remove a minimum of $d$ vertices to disconnect internally, and it will need to remove a matching vertex from the other $d$-dimentional cube to make this $d+1$-dimentional cube become disconnected.\newline
+
+As we have $d$ and $d + 1$ to be hold for the induction, we may conclude that a $d+1$-dimentional cube has a connectivity of $d+1$, as $\kappa(G) = d$.
+
+
 \section*{Problem 3}
 
 \begin{figure}[H]
