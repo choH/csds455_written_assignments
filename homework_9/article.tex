@@ -80,11 +80,11 @@ With the lemma proven, we may arbitrarily select $k$ desired vertices and find a
 
 If $j < k$ but $|C| \geq k$, by the lemma and knowing that $G$ is a $k$-connected graph, we know that there must be $k$ vertex-disjoint paths from $C$ to $v_k$, where $v_k$ $\in D_k$ and $\not \in C$. We also know that these $k$ vertex-disjoint paths from $C$ to $v_k$ can end on $k$ different vertices on $C$.
 
-Thus, we may find two adjacent vertices on $C$ (denotes them $v_i$ and $v_{i+1}$) and replace the edge between them with a path\footnote{This path must exist as there will be at least $k$ distinct vertices connecting $v_{i}$ or $v_{i+1}$ to $v_k$, so we can always connect $v_i$ to one of the vertex, reach $v_k$ via a path, and get back to $v_{i+1}$ from another vertex via another path. Notices we use two intermidiate vertices here, so the graph must be at least 2-conncted} of $v_{i} \to v_k \to v_{i+1}$. Since there are $k$ paths between $C$ to any vertex in $D_k$, we may do replace-edge-with-a-path manuver entil all $k$ vertices in $D_k$ is included in the cycle.
+Thus, we may find two adjacent vertices on $C$ (denotes them $v_i$ and $v_{i+1}$) and replace the edge between them with a path\footnote{This path must exist as there will be at least $k$ distinct vertices connecting $v_{i}$ or $v_{i+1}$ to $v_k$, so we can always connect $v_i$ to one of the vertex, reach $v_k$ via a path, and get back to $v_{i+1}$ from another vertex via another path. Notices we use two intermidiate vertices here, so the graph must be at least 2-connected} of $v_{i} \to v_k \to v_{i+1}$. Since there are $k$ paths between $C$ to any vertex in $D_k$, we may do replace-edge-with-a-path manuver entil all $k$ vertices in $D_k$ is included in the cycle.
 
 If $j < k$ but $|C| = $k$-1$, there must be $k-1$ vertex-disjoint paths from $C$ to $v_k$, each ending on a different vertex on $C$. We know that $|C|$ must be $2$ as otherwise $C$ will not be a cycle, so we may always find two adjacent vertices $v_i$ and $v_{i+1}$ on $C$. Replace the edge between them with the path $v_{i} \to v_k \to v_{i+1}$, now we have included the only leftover desired vertex $v_k$ into the cycle.\newline
 
-With $\geq k$ and $k-1$ both being true, and known that $k=2$ is trivially true\footnote{Due to any two vertices in a 2-conncted graph will have 2 vertex-disjoint paths between them. So by identifying the two desired the vertices and connecting the two vertex-disjoint paths between them, we will automatically have a cycle containing them.}, we have proven the statement by induction.
+With $\geq k$ and $k-1$ both being true, and known that $k=2$ is trivially true\footnote{Due to any two vertices in a 2-connected graph will have 2 vertex-disjoint paths between them. So by identifying the two desired the vertices and connecting the two vertex-disjoint paths between them, we will automatically have a cycle containing them.}, we have proven the statement by induction.
 
 
 
@@ -93,6 +93,20 @@ With $\geq k$ and $k-1$ both being true, and known that $k=2$ is trivially true\
 \end{proof}
 
 \section*{Problem 3}
+
+The to-be-prove statement is ``Let $G$ be a 3-connected graph. Prove that $G/xy$ is 3-connected if and only if $G − \{x, y\}$ is 2-connected.'' This suggests for a 3-connected $G$, if we have a 3-connected $G/xy$, we should be able to have a 2-connected $G − \{x, y\}$.\newline
+
+It seems I can find the below $G$ as a counterexample for this statement. It seems as long as the connectivity of $G$ is depended on vertices $x, y$, $G − \{x, y\}$ can have a uncontrollable connectivity. I don't know if it is due to my interpretation of the question instruction.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{{fig/fig_p3.png}}
+    \label{fig:3}
+\end{figure}
+
+
+
 
 
 % \section{References}
