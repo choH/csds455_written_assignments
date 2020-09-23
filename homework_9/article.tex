@@ -47,10 +47,11 @@
 
 \section*{Problem 1}
 
+\begin{proof}
 Suppose we have $k$ edge-disjoint $a \to b$ paths in $G$, this suggest there are at least $k$ entirely distinct ways of getting from vertex $a$ to $b$. So intuitively, we need to cut out all of these paths to ensure $a$ to be disconnected from $b$. And it is known that to cut off a path, at least 1 edge needs to be removed, thus for a graph with $k$ edge-disjoint $a \to b$ paths, we need to remove $k$ edges to make $a$ to be disconnected from $b$.
 
 Note when selecting an edge to remove from an edge-disjoint path, such edge must be an common edge of all paths from $a \to b$ which share edge(s) with this particular edge disjoint path.
-
+\end{proof}
 
 \section*{Problem 2}
 
@@ -63,13 +64,14 @@ Note when selecting an edge to remove from an edge-disjoint path, such edge must
 
     \begin{adjustwidth}{1cm}{}
 
+    \begin{proof}
     \textbf{Menger's Theorem: For a connected, finite undirected graph $G$. The minimum vertex cut for $u, v \in V(G)$ is equal to the maximum number of vertex-disjoint paths from $u$ to $v$}.\newline
 
     Say we have $k$ vertex-disjoint paths from $u$ to $v$. We will need to remove a vertex to break a path (similar to \textit{Problem 1}, we will need to remove the common vertex of all paths from $u$ to $v$ where these path has a shared vertex with the path we removing vertex from), so we must remove $k$ vertices to disconnect $u$ to $v$.
 
     \textbf{By promoting this proof to all vertex pairs, this means any $k$-connected graph will have k (internally) vertex-disjoint paths from any vertex pair in G.}
 
-    \begin{proof}
+
     \end{proof}
 
     \end{adjustwidth}
