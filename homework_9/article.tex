@@ -94,9 +94,34 @@ With $\geq k$ and $k-1$ both being true, and known that $k=2$ is trivially true\
 
 \section*{Problem 3}
 
+\textit{I intensively discussed with Jiaqi Yu and Yuhui Zhang on this problem.}\newline
+
+\noindent\textbf{$\Longrightarrow$ To prove by contrapositive, W.T.S. that if $G − \{x, y\}$ is not 2-connected, then $G/xy$ is not 3-connected.}
+
+\begin{proof}
+For $G - \{x, y\}$ to be not 2-connected, there must be $\kappa(G - \{x, y\}) < 2$. So either $\kappa(G - \{x, y\}) = 0$ where $G$ is already disconnected, then adding a point $v_{xy}$ will not make $G/xy$ become 3-connected as we can simply remove this $v_{xy}$ then we will have our $G - \{x, y\}$ with $\kappa(G - \{x, y\}) = 0$. In this case we have at most $\kappa(G/xy) = 1$, so $G/xy$ can't be 3-connected.
+
+In case of $\kappa(G - \{x, y\}) = 1$, $\kappa(G/xy)$ is at most $2$. Because regardless what the $v_{xy}$ will be in $G/xy$, we can simply remove it, which will give us the 1-connectivity $G - \{x, y\}$ graph back, then we shall remove that 1 cut-off vertex in $G - \{x, y\}$ which will disconnect $G/xy$. Since we have at most $\kappa(G/xy) = 2$, $G/xy$ can't be 3-connected.\newline
+
+Since the contrapositive is fulfilled, we have proven the forwards direction.
+
+\end{proof}
 
 
+\noindent\textbf{$\Longleftarrow$ To prove by contrapositive, W.T.S. that if $G/xy$ is not 3-connected, then $G − \{x, y\}$ is not 2-connected.}
 
+\begin{proof}
+
+Same as above, a not 3-connected $G/xy$ implies $\kappa(G/xy)$ is at most $2$. Also known that $G$ is 3-connected, which implies at least $\kappa(G) = 3$. Combine them together, we know that vertices $x, y$ must be both removed to disconnect $G$.\newline
+
+We know this because if none of $x, y$ need to be removed to have a disconnected $G$ where $\kappa(G) = 3$, then $x, y$ and also $v_{xy}$ are not influential to the connectivity of their graphs, so we won't have a $\kappa(G/xy) \leq 2$ as the same 3 vertices also need to be removed in $G/xy$ to make $G/xy$ disconnect, a contradiction.
+
+If one of $x, y$ but not both needs to be removed to to disconnect $G$ where $\kappa(G) = 3$. W.L.O.G. say $y$ is the one needs to be removed, then there must be two other vertices (say $A, B$) need to be removed to disconnect $G$. Which implies for vertices $u, v$ (where $u$ and $v$ are from different components of the the disconnected $G$), path $u \to x \to v$ must internally shares vertex(ices) with path $u \to A \to v$, $u \to B \to v$, or path $u \to y \to v$. Then in $G/xy$ we still need to break these 3 internally-vertex-disjoint paths to disconnect $G/xy$, which yields $\kappa(G/xy) = 3$, also a contraction to the setup.\newline
+
+So only if vertices $x, y$ must be both removed to disconnect $G$, we shall then have a $G/xy$ with $\kappa(G/xy) \leq 2$ as now we can just removed the contracted $v_{xy}$ and have a $\kappa(G/xy) = 2$. However, in $G - \{x, y\}$, vertices $x$ and $y$ are already removed; this means $\kappa(G - \{x, y\}) = 1$ and $G - \{x, y\}$ is not 2-connected. This fulfills the contrapositive and proven the backwards direction.
+
+\end{proof}
+ % on one of the vertex-disjoint paths between the two disconnected component of $G$, thus by doing an edge contraction on $x, y$ to $v_{xy}$, we have decreased
 
 % The to-be-prove statement is ``Let $G$ be a 3-connected graph. Prove that $G/xy$ is 3-connected if and only if $G − \{x, y\}$ is 2-connected.'' This suggests for a 3-connected $G$, if we have a 3-connected $G/xy$, we should be able to have a 2-connected $G − \{x, y\}$.\newline
 %
