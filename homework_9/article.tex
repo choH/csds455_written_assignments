@@ -53,6 +53,43 @@ Note when selecting an edge to remove from an edge-disjoint path, such edge must
 
 
 \section*{Problem 2}
+
+\textit{I consulted \url{https://math.stackexchange.com/questions/3113602/} for this problem.}\newline
+
+\begin{proof}
+
+\leavevmode\newline
+
+
+    \begin{adjustwidth}{1cm}{}
+
+    \textbf{Menger's Theorem: For a connected, finite undirected graph $G$. The minimum vertex cut for $u, v \in V(G)$ is equal to the maximum number of vertex-disjoint paths from $u$ to $v$}.\newline
+
+    Say we have $k$ vertex-disjoint paths from $u$ to $v$. We will need to remove a vertex to break a path (similar to \textit{Problem 1}, we will need to remove the common vertex of all paths from $u$ to $v$ where these path has a shared vertex with the path we removing vertex from), so we must remove $k$ vertices to disconnect $u$ to $v$.
+
+    \textbf{By promoting this proof to all vertex pairs, this means any $k$-connected graph will have k (internally) vertex-disjoint paths from any vertex pair in G.}
+
+    \begin{proof}
+    \end{proof}
+
+    \end{adjustwidth}
+
+With the lemma proven, we may arbitrarily select $k$ desired vertices and find a cycle $C$ of $G$ which has $j$ common vertices with the $k$ desired vertex set (we call this set $D_k$), say $v_1, v_2, ..., v_j$. If $j = k$, then the statment is automatically proven. \newline
+
+If $j < k$ but $|C| \geq k$, by the lemma and knowing that $G$ is a $k$-connected graph, we know that there must be $k$ vertex-disjoint paths from $C$ to $v_k$, where $v_k$ $\in D_k$ and $\not \in C$. We also know that these $k$ vertex-disjoint paths from $C$ to $v_k$ can end on $k$ different vertices on $C$.
+
+Thus, we may find two adjacent vertices on $C$ (denotes them $v_i$ and $v_{i+1}$) and replace the edge between them with a path\footnote{This path must exist as there will be at least $k$ distinct vertices connecting $v_{i}$ or $v_{i+1}$ to $v_k$, so we can always connect $v_i$ to one of the vertex, reach $v_k$ via a path, and get back to $v_{i+1}$ from another vertex via another path. Notices we use two intermidiate vertices here, so the graph must be at least 2-conncted} of $v_{i} \to v_k \to v_{i+1}$. Since there are $k$ paths between $C$ to any vertex in $D_k$, we may do replace-edge-with-a-path manuver entil all $k$ vertices in $D_k$ is included in the cycle.
+
+If $j < k$ but $|C| = $k$-1$, there must be $k-1$ vertex-disjoint paths from $C$ to $v_k$, each ending on a different vertex on $C$. We know that $|C|$ must be $2$ as otherwise $C$ will not be a cycle, so we may always find two adjacent vertices $v_i$ and $v_{i+1}$ on $C$. Replace the edge between them with the path $v_{i} \to v_k \to v_{i+1}$, now we have included the only leftover desired vertex $v_k$ into the cycle.\newline
+
+With $\geq k$ and $k-1$ both being true, and known that $k=2$ is trivially true\footnote{Due to any two vertices in a 2-conncted graph will have 2 vertex-disjoint paths between them. So by identifying the two desired the vertices and connecting the two vertex-disjoint paths between them, we will automatically have a cycle containing them.}, we have proven the statement by induction.
+
+
+
+
+
+\end{proof}
+
 \section*{Problem 3}
 
 
