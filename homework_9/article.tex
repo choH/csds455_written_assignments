@@ -99,9 +99,9 @@ With $\geq k$ and $k-1$ both being true, and known that $k=2$ is trivially true\
 \noindent\textbf{$\Longrightarrow$ To prove by contrapositive, W.T.S. that if $G − \{x, y\}$ is not 2-connected, then $G/xy$ is not 3-connected.}
 
 \begin{proof}
-For $G - \{x, y\}$ to be not 2-connected, there must be $\kappa(G - \{x, y\}) < 2$. So either $\kappa(G - \{x, y\}) = 0$ where $G$ is already disconnected, then adding a point $v_{xy}$ will not make $G/xy$ become 3-connected as we can simply remove this $v_{xy}$ then we will have our $G - \{x, y\}$ with $\kappa(G - \{x, y\}) = 0$. In this case we have at most $\kappa(G/xy) = 1$, so $G/xy$ can't be 3-connected.
+For $G - \{x, y\}$ to be not 2-connected, there must be $\kappa(G - \{x, y\}) < 2$. Since $G$ is 3-connected, we can't have $\kappa(G - \{x, y\}) = 0$, so the only left option would be $\kappa(G - \{x, y\}) = 1$; we want to show that $\kappa(G/xy)$ is at most $2$ in this case.
 
-In case of $\kappa(G - \{x, y\}) = 1$, $\kappa(G/xy)$ is at most $2$. Because regardless what the $v_{xy}$ will be in $G/xy$, we can simply remove it, which will give us the 1-connectivity $G - \{x, y\}$ graph back, then we shall remove that 1 cut-off vertex in $G - \{x, y\}$ which will disconnect $G/xy$. Since we have at most $\kappa(G/xy) = 2$, $G/xy$ can't be 3-connected.\newline
+This is because regardless what the $v_{xy}$ will be in $G/xy$, we can simply remove it, which will give us the 1-connectivity $G - \{x, y\}$ graph back, then we shall remove that 1 cut-off vertex in $G - \{x, y\}$ which will disconnect $G/xy$. Since we have at most $\kappa(G/xy) = 2$, $G/xy$ can't be 3-connected.\newline
 
 Since the contrapositive is fulfilled, we have proven the forwards direction.
 
