@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{footnotebackref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{esint}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{wasysym}
+\newcommand{\ilc}{\texttt}
+\usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{changepage}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows.meta,arrows}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+% \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+
+\title{\textbf{CSDS 455: Homework 10}}
+
+\author{Shaochen (Henry) ZHONG, \ilc{sxz517}}
+\date{Due and submitted on 09/28/2020 \\ Fall 2020, Dr. Connamacher}
+\maketitle
+
+\section*{Problem 1}
+
+Let $n$ be the number of vertex, $e$ be edges, and $f$ be faces. The base case would be $n = 1$ since it is just a dot, there will be $e = 0$ and $f = 0$, thus satisfies $n - e + f = 2$.\newline
+
+Now assume it is true for $n = k_1$, $e = k_2$, and $f = k_3$. The first case would be to add one edge without any extra vertex. An edge among two existed vertices would slice a face into two face, thus we have $e' = k_2 + 1$, $f' = k_3 +1$, and $v' = v$. Where $v' - e' + f' = 2$ still holds.
+
+The other case would be to to add one extra vertex and one edge. In this case no extra face will be added and we have $e' = k_2 + 1$, $v' = k_1 + 1$, $f' = k_3$, where $v' - e' + f' = 2$ still holds.
+
+Since a planar graph is connected, the only way too way we can add on it is to add an edge, or an edge with and a vertex (a path). The above too cases have shown the Eular Formular holds for both cases, thus by induction the statement is proven.
+
+\section*{Problem 2}
+\section*{Problem 3}
+\section*{Problem 4}
+
+
+
+
+
+
+
+% \section{References}
+%
+% \nocite{*}
+% \raggedright
+% \bibliography{references.bib}
+% \bibliographystyle{plain}
+
+
+\end{document}
