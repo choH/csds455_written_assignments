@@ -45,7 +45,7 @@
 \date{Due and submitted on 09/28/2020 \\ Fall 2020, Dr. Connamacher}
 \maketitle
 
-\textit{I have learned from Yige Sun for this assignment.}
+\textit{I have discussed with Yige Sun for this assignment.}
 
 \section*{Problem 1}
 
@@ -80,16 +80,68 @@ d(G) &\leq 6n - 12 \\
 \frac{d(G)}{n} &\leq 6 - \frac{12}{n}
 \end{align*}
 
-$\frac{d(G)}{n} &\leq 6 - \frac{12}{n}$ suggests the average degree per vertex in $G$ is less than $6$, which implies there will be aleast one vertex $v$ in $V(G)$ where $d(v) \leq 6$.\newline
+$\frac{d(G)}{n} \leq 6 - \frac{12}{n}$ suggests the average degree per vertex in $G$ is less than $6$, which implies there will be aleast one vertex $v$ in $V(G)$ where $d(v) \leq 6$.\newline
 
 We have proven the statement to be true for all possible cases.
 
 
 
 
-
-
 \section*{Problem 3}
+
+\textit{I have consulted \url{https://math.stackexchange.com/questions/764566} and \url{http://www.su18.eecs70.org/static/slides/lec-5-handout.pdf} for this problem.}
+\newline
+
+Although being an \textit{iff} question, we will only need to prove one direction as the dual graph of $G$ is $G*$ and so does vice versa.\newline
+
+Let $T$ be the spanning tree of $G$, and let $T^*$ be a subgraph of $G^*$ consisting edges of $G^*$ that are corresponding to the edges of $G$ not in $T$.
+
+Known that $|V(T)| = |V(G)| - 1$, thus there must be $|E(T^*)| = |E(G)| - (|V(G)| - 1)$. By Euler's formula there must be $2 - |V(G)| + |E(G)|$ faces in $G$; since we know that a face in $G$ corresponds to a vertex in $G^*$, we have:
+
+\begin{align*}
+    |V(G^*)| &= 2 - |V(G)| + |E(G)| \\
+    &= |E(G)|- |V(G)| + 2 \\
+    |E(T^*)| &= |E(G)| - (|V(G)| - 1) \\
+    &= |E(G)| - |V(G)| + 1 \\
+    &= |V(G^*)| - 1
+\end{align*}
+
+Now we have shown that $|E(T^*)| = |V(G^*)| - 1$. To show that $T^*$ is a spanning tree of $G^*$, we need to show that $T^*$ is an acyclic, connected subgraph of $G*$ that consists every vertices of $G*$.
+
+\leavevmode\newline
+
+
+    \begin{adjustwidth}{1cm}{}
+
+    \begin{proof}
+    \textbf{Cycle-Cut Duality: An edge cut in $G^*$ is a cycle in $G$}.\newline
+
+    A vertex in $G^*$ corresponds to a face in $G$. This suggests if we can perform an edge cut to disjoint one or couple vertices $\in V(G^*)$ from $G^*$, the removed edges in $G*$ will correspond to some faces enclosing edges in $G$. Since we know that a face is always enclosed by a cycle of edges, a cut in $G^*$ is a cycle in $G$.
+
+    \textbf{Promoting this conclusion known that $G$ is the dual of $G*$ and vise versa, a cycle in $G$ also corresponds a cut in $G*$.}
+
+
+    \end{proof}
+
+    \end{adjustwidth}
+
+We first show that $T^*$ is acyclic. This can be conclude by observating the fact that $T$ is connected, which implies $V(G) - T$ is have no edge cut of $G$. Thus, by the lemma, there no cycle in $T^*$ and $T^*$ is therefore acyclic.
+
+We also know that $T^*$, being acyclic subgraph of $G^*$ with $|V(G^*)| - 1$ edges, must also be connected. Since after the first vertex of $T^*$, every edge of it will bring in an extra vertex, and there are only $|V(G^*)|$ vertices in $G^*$ -- which will all be included in $T^*$.\newline
+
+Knowing that $T^*$ is an connected, acyclic subgraph of $G^*$ with $|V(G^*)|$ verticies. We have proven that $T^*$ is a spanning tree of $G^*$.
+
+
+% We will do it by induction on number of faces. For $f = 1$, $G$ must be a tree where $G^*$ must be a node (since there is only one infinite face). Therefore it is trivially true that the duals of remaining edges of $G$ form a spanning tree of $G^*$.
+%
+% Assume we assume this is also the case for a $G$ with $k$ faces,
+%
+
+
+
+
+
+
 \section*{Problem 4}
 
 
