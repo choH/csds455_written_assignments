@@ -145,7 +145,7 @@ Knowing that $T^*$ is an connected, acyclic subgraph of $G^*$ with $|V(G^*)|$ ve
 \section*{Problem 4}
 
 
-Assume a minimum 2-connected graph $G$ with $f = 1$ (which is a square), we know the dual of $G$, $G^*$ will also be 2-connected -- as the $G*$ in this case only has two vertices each with degree of $4$. So obviously removing one vertex won't be able to make this $G*$ disconnected. So the base case is trivially true.\newline
+Assume a minimum 2-connected graph $G$ with $f = 2$ (which is a triangle), we know the dual of $G$, $G^*$ will also be 2-connected -- as the $G^*$ in this case only has two vertices each with degree of $3$. So obviously removing one vertex won't be able to make this $G^*$ disconnected. So the base case is trivially true.\newline
 
 Proceed to do induction on number of faces, assume that it is also true for a 2-connected graph $G_k$ with $f=k$. There are two ways we may have a 2-connected $G_{k+1}$ with $f = k+1$.\newline
 
@@ -157,7 +157,7 @@ The $G^*_{k+1}$ in this case will be $G^*_k - \{v_x\}$ but with new edges to and
 We know this is true as each of $x_1$ and $x_2$ must be enclosed by 3 edges for minimum to be a face. So there must be 3 edges coming out of $v_{x_1}$ and 3 edges coming out of $v_{x_2}$. W.L.O.G. we know that 1 edge of $v_{x_1}$ will be $v_{x_1}v_{x_2}$, so even assume the other 2 edges of $v_{x_1}$ are connected to the same vertex other than $v_{x_2}$, this $v_{x_1}$ will not be 1-vertex-disconnectable to the rest of the $G^*_{k+1}$. This inference also applies to $v_{x_2}$. So with $x_1$ and $x_2$ being 2-connected, $G^*_{k+1}$ will be 2-connected.\newline
 
 
-The second case will be to connect (or ``merge'') a 1-face component to $G_k$ to make $G_{k+1}$ with $k+1$ faces. To keep $G_{k+1}$ 2-connected, this new component with a face denotes $x_1$ must share at least 2 vertices with $G_k$; as otherwise if only 1 vertex is shared, we may simply remove this shared vertex and $G_{k+1}$ will be disconnected.
+The second case will be to connect (or ``merge'') a 1-face component to $G_k$ to make $G_{k+1}$ with $k+1$ faces. To keep $G_{k+1}$ 2-connected, this new component with a face denotes $x_1$ must share at least 2 vertices with $G_k$ (a.k.a. adding a path between 2 vertices of  $G_k$); as otherwise if only 1 vertex is shared, we may simply remove this shared vertex and $G_{k+1}$ will be disconnected.
 
 With the two shared vertices, this new face $x_1$ will be ``neighbered'' with an existed face in $G_k$ (call that face $y$), and this new face $x_1$ will be inside another face $x$ in $G_k$ (and this face $x$ is now splited into faces $x_1$ and $x_2$ in $G_{k+1}$).
 
