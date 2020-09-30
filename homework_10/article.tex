@@ -96,7 +96,7 @@ Although being an \textit{iff} question, we will only need to prove one directio
 
 Let $T$ be the spanning tree of $G$, and let $T^*$ be a subgraph of $G^*$ consisting edges of $G^*$ that are corresponding to the edges of $G$ not in $T$.
 
-Known that $|V(T)| = |V(G)| - 1$, thus there must be $|E(T^*)| = |E(G)| - (|V(G)| - 1)$. By Euler's formula there must be $2 - |V(G)| + |E(G)|$ faces in $G$; since we know that a face in $G$ corresponds to a vertex in $G^*$, we have:
+Known that $|E(T)| = |V(G)| - 1$, thus there must be $|E(T^*)| = |E(G)| - (|V(G)| - 1)$. By Euler's formula there must be $2 - |V(G)| + |E(G)|$ faces in $G$; since we know that a face in $G$ corresponds to a vertex in $G^*$, we have:
 
 \begin{align*}
     |V(G^*)| &= 2 - |V(G)| + |E(G)| \\
@@ -149,19 +149,37 @@ Assume a minimum 2-connected graph $G$ with $f = 2$ (which is a triangle), we kn
 
 Proceed to do induction on number of faces, assume that it is also true for a 2-connected graph $G_k$ with $f=k$. There are two ways we may have a 2-connected $G_{k+1}$ with $f = k+1$.\newline
 
-First we simply add an edge between the existing vertices of $G_k$, this will split a face $x$ in $G_k$ into $x_1$ and $x_2$ in $G_{k+1}$. This $G_{k+1}$ must be 2-connected since $G_k$ is 2-connected, and there is no way that adding an edge (or edges) may result a decrease in vertex-connectivity. We denotes the vertex representing face $x$ of $G_k$ in $G^*_k$ as $v_x$, and simliar for $v_{x_1}, v_{x_2}$.
-
-The $G^*_{k+1}$ in this case will be $G^*_k - \{v_x\}$ but with new edges to and between $v_{x_1}$ and $v_{x_2}$. Known that $G^*_k$ is 2-connected, which means $G^*_k - \{v_x\}$ must still be connected. So as long as $v_{x_1}$ and/or $v_{x_2}$ won't be disconnected from the rest of the $G^*_{k+1}$ with one vertex removed, we have shown $G^*_{k+1}$ to be 2-connected.
-
-
-We know this is true as each of $x_1$ and $x_2$ must be enclosed by 3 edges for minimum to be a face. So there must be 3 edges coming out of $v_{x_1}$ and 3 edges coming out of $v_{x_2}$. W.L.O.G. we know that 1 edge of $v_{x_1}$ will be $v_{x_1}v_{x_2}$, so even assume the other 2 edges of $v_{x_1}$ are connected to the same vertex other than $v_{x_2}$, this $v_{x_1}$ will not be 1-vertex-disconnectable to the rest of the $G^*_{k+1}$. This inference also applies to $v_{x_2}$. So with $x_1$ and $x_2$ being 2-connected, $G^*_{k+1}$ will be 2-connected.\newline
-
+First we simply add an edge between the existing vertices of $G_k$, this will split a face $x$ in $G_k$ into $x_1$ and $x_2$ in $G_{k+1}$. This $G_{k+1}$ must be 2-connected since $G_k$ is 2-connected, and there is no way that adding an edge (or edges) may result a decrease in vertex-connectivity.
 
 The second case will be to connect (or ``merge'') a 1-face component to $G_k$ to make $G_{k+1}$ with $k+1$ faces. To keep $G_{k+1}$ 2-connected, this new component with a face denotes $x_1$ must share at least 2 vertices with $G_k$ (a.k.a. adding a path between 2 vertices of  $G_k$); as otherwise if only 1 vertex is shared, we may simply remove this shared vertex and $G_{k+1}$ will be disconnected.
 
-With the two shared vertices, this new face $x_1$ will be ``neighbered'' with an existed face in $G_k$ (call that face $y$), and this new face $x_1$ will be inside another face $x$ in $G_k$ (and this face $x$ is now splited into faces $x_1$ and $x_2$ in $G_{k+1}$).
+With the two shared vertices, this new face $x_1$ will be ``neighbered'' with an existed face in $G_k$ (call that face $x'$), and this new face $x_1$ will be inside another face $x$ in $G_k$ (and this face $x$ is now splited into faces $x_1$ and $x_2$ in $G_{k+1}$).\newline
 
-Now we have converted this case to be same as the first case: one face in $G_k$ splitted into 2 faces in $G_{k+1}$. And we therefore know that this $G^*_{k+1}$ will still be 2-connected by the same conclusion.\newline
+So two cases are essentially the same as it is about a path (which can be an edge) splitting a face $x$ in $G_k$ into two faces $x_1$ and $x_2$ in $G_{k+1}$. We denotes the vertices representing these faces in respetive $G^*$s as $v_x$, $v_{x_1}$, and $v_{x_2}$.
+
+
+The $G^*_{k+1}$ in this case will be $G^*_k - \{v_x\}$ but with new edges to and between $v_{x_1}$ and $v_{x_2}$. Known that $G^*_k$ is 2-connected, which means $G^*_k - \{v_x\}$ must still be connected. So as long as $v_{x_1}$ and/or $v_{x_2}$ won't be disconnected from the rest of the $G^*_{k+1}$ with one vertex removed, we have shown $G^*_{k+1}$ to be 2-connected.\newline
+
+Since $v_x$ must be 2-connected in $G^*_k$, it must be at least connected to two distinct vertices $v_y$ and $v_z$ (as otherwise if $v_x$ is just connected to one other vertex, removal of this vertex will make $G^*_k$ disconnected). When splitting $x$ into $x_1$ and $x_2$, we are either splitting an enclosed face $x$ into two enclosed faces $x_1$ and $x_2$; or we are splitting infinite face $x$ into an enclosed face $x_1$ and an infinite face $x_2$ (W.L.O.G).
+
+In the first case, the connections between $v_x$ to $v_y$ and $v_z$ in $G^*_k $ must be inherited by $v_{x_1}$, $v_{x_2}$ in $G^*_{k+1}$. As the faces $x_1$ and $x_2$ together inherite the enclosed edges of $x$. We know that there must be edge $v_{x_1}v_{x_2}$ in $G^*_{k+1}$, and all other edges coming out of $v_{x_1}$, $v_{x_2}$ are connected to at least two distinct vertices $v_y$ and $v_z$. Therefore $v_{x_1}$, $v_{x_2}$ are not going to be disconnected from the rest of the $G^*_{k+1}$ with one vertex removed. Because W.L.O.G, if we remove $v_y$ there will still be a path of $v_z \rightarrow v_{x_1} \rightarrow v_{x_2}$ (so does removing $v_z$). If we remove $v_{x_1}$ or $v_{x_2}$, the leftover one is still connected to $v_y$ or $v_z$.
+
+In the second case we will have $v_{x_1}$ connected to $v_x'$ (as face $x$ shares an edge with $x'$). There will still be an edge of $v_{x_1}v_{x_2}$, and there will be $v_{x_2}$ to the vertex representing the infinite faces (call it $v_i$). Removing any of these mentioned vertcies will still leave $v_{x_1}$, $v_{x_2}$ connected to the rest of the $G^*_{k+1}$.\newline
+
+
+
+%
+% With the two shared vertices, this new face $x_1$ will be ``neighbered'' with an existed face in $G_k$ (call that face $y$), and this new face $x_1$ will be inside another face $x$ in $G_k$ (and this face $x$ is now splited into faces $x_1$ and $x_2$ in $G_{k+1}$).
+%
+%
+% We know this is true as each of $x_1$ and $x_2$ must be enclosed by 3 edges for minimum to be a face. So there must be 3 edges coming out of $v_{x_1}$ and 3 edges coming out of $v_{x_2}$. W.L.O.G. we know that 1 edge of $v_{x_1}$ will be $v_{x_1}v_{x_2}$, so even assume the other 2 edges of $v_{x_1}$ are connected to the same vertex other than $v_{x_2}$, this $v_{x_1}$ will not be 1-vertex-disconnectable to the rest of the $G^*_{k+1}$. This inference also applies to $v_{x_2}$. So with $x_1$ and $x_2$ being 2-connected, $G^*_{k+1}$ will be 2-connected.\newline
+%
+%
+% The second case will be to connect (or ``merge'') a 1-face component to $G_k$ to make $G_{k+1}$ with $k+1$ faces. To keep $G_{k+1}$ 2-connected, this new component with a face denotes $x_1$ must share at least 2 vertices with $G_k$ (a.k.a. adding a path between 2 vertices of  $G_k$); as otherwise if only 1 vertex is shared, we may simply remove this shared vertex and $G_{k+1}$ will be disconnected.
+%
+% With the two shared vertices, this new face $x_1$ will be ``neighbered'' with an existed face in $G_k$ (call that face $y$), and this new face $x_1$ will be inside another face $x$ in $G_k$ (and this face $x$ is now splited into faces $x_1$ and $x_2$ in $G_{k+1}$).
+%
+% Now we have converted this case to be same as the first case: one face in $G_k$ splitted into 2 faces in $G_{k+1}$. And we therefore know that this $G^*_{k+1}$ will still be 2-connected by the same conclusion.\newline
 
 Since we have shown that for a 2-connected planar graph $G$ with any number of faces, its dual graph $G^*$ will also be 2-connected under all possible cases, we have proven the statement by induction.
 
