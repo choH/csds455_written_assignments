@@ -1,0 +1,82 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{footnotebackref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{esint}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{wasysym}
+\newcommand{\ilc}{\texttt}
+\usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{changepage}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows.meta,arrows}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+% \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+
+\title{\textbf{CSDS 455: Homework 11}}
+
+\author{Shaochen (Henry) ZHONG, \ilc{sxz517}}
+\date{Due and submitted on 09/30/2020 \\ Fall 2020, Dr. Connamacher}
+\maketitle
+
+\textit{I have discussed with Yuhui Zhang and Yige Sun for this assignment.} Also sorry if this one is a bit ``sloppy'' -- have to watch the debate!
+
+\section*{Problem 1}
+
+We have the total charge of a graph being $C = C_v + C_f$, know that $\sum_{f \in F}|f| = \sum_{v \in V} d(v) = 2|E|$ and by Euler's formular $|V| - |E| + |F| = 2$we have:
+
+\begin{align*}
+    C &= \sum_{v \in V}(d(v) - 4) + \sum_{f \in F}(|f| - 4) \\
+    &= 2|E| - 4|V| + 2|E| - 4|F| \\
+    &= 4|E| - 4|V| - 4|F| \\
+    &= 4(|F| - 2) - 4|F| \\
+    &= -8 < 0
+\end{align*}
+
+Thus, the total charge is negative.
+
+
+
+
+
+\section*{Problem 2}
+
+\section*{Problem 3}
+
+
+
+% \section{References}
+%
+% \nocite{*}
+% \raggedright
+% \bibliography{references.bib}
+% \bibliographystyle{plain}
+
+
+\end{document}
