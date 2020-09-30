@@ -69,7 +69,11 @@ Thus, the total charge is negative.
 
 \section*{Problem 3}
 
+\begin{proof}
+    To proof by contradiction. Assume that every vertex in $G$ on face $f$ has $d(v) + |f| > 8$, which suggests for every vertex $v$ on face $f$, there is $d(v) - 4 + |f| - 4 > 0$. For $\delta(G) \geq 3$, this suggests for a 3-degree vertex $v$, its neighbored face $f$ must be $|f| \geq 6$ to statsfies the pervious inequality.
 
+    Now we may utilized the discharging rule introduced in \textit{Problem 2}. Which will make every vertex and faces of $G$ having a non-negative charge (as every vertex is neighbored with faces with $|f| \geq 6$), thus lead to a $G$ with a total non-negative charge. This is a contradiction to \textit{Problem 1} conclustion and the statement is therefore proved by contradiction.
+\end{proof}
 
 % \section{References}
 %
