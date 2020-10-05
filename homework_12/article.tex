@@ -63,6 +63,12 @@ It is because if a $u$ vertex and its next $v$ vertex have the same subscript, t
 
 
 \section*{Problem 3}
+
+We first want to show for any $k$-chromatic graph has a $k$-critical subgraph: For any given $k$-chromatic graph $G$, if it is a critical $k$-critical graph by itself, then we are done. If $G$ itself is not a $k$-critical graph, then there must be a $v \in V{G}$ where $\chi(G-v) \geq \chi(G)$. Since removing a vertex will not increase the minimum coloring of a graph, for this vertex we must have $\chi(G-v) = \chi(G)$. If the new $G$ (with $v$ removed) is still not $k$-critical, we will remove another $v$ where $\chi(G-v) = \chi(G)$, untill we have a $k$-critical subgraph out of $G$.\newline
+
+We will then show every vertex in $k$-critical graph $G'$ has a minimum degree of $k-1$. Assume there is $v \in V(G')$ where $d(v) = k-2$. Due to the property of being a $k$-critical graph, we must have $\chi(G'-v) <= k - 1$. Since $x$ has only $k-2$ neighbors, we may always color $x$ in $G'$ with the $k-1$-th color used in $G' - v$. This suggests $G'$ is $k-1$ colorable in stead of $k$, which is contradiction to the setup of $G'$. Thus, if $G'$ is $k$-critical, $\delta(G') \geq k - 1$.
+
+
 \section*{Problem 4}
 % \section{References}
 %
