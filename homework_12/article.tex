@@ -54,6 +54,14 @@ This votex odering will guarteen a $\chi(G)$-coloring of $G$. As if the a vertex
 
 
 \section*{Problem 2}
+
+Let $G$ being a bipartite graph, where each of its part partision has $n$ vertices (so $2n$ vertices in total). We denote the vertices in partition $U$ to be $u_1, u_2, ..., u_n$, and likewise for vertices in partition $V$.
+
+For a vertex $u_i \in V(U)$, we connect it to all vertices in $U$ except to $v_i$; we do the same to all vertices in $U$. The order that produce a $2n$-coloring of $G$ would be $u_1, v_1, u_2, v_2, ..., u_n, v_n$.
+
+It is because if a $u$ vertex and its next $v$ vertex have the same subscript, they will not be connect and the greedy algorithm may assign the same color to them. However, if a $v$ vertex and its next $u$ vertex have the different subscripts (specifically, $v_i$ and $u_j$ where $j = i+1$), the $u$ vertex will be connected too all currently colored $v$ vertices, this means the greedy algorithm will have to assign a new color for it. Since we have $n$ pairs of neighbor $(v_i, u_j)$ where $j = i+1$, $n$ new colors are were assigned and the a $n$-coloring of $G$ is obtained.
+
+
 \section*{Problem 3}
 \section*{Problem 4}
 % \section{References}
