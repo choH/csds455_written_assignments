@@ -70,6 +70,69 @@ We will then show every vertex in $k$-critical graph $G'$ has a minimum degree o
 
 
 \section*{Problem 4}
+
+We will introduce a way to construct graph $G$ that fits the question requirements. We first draw a vertex $X$, then we draw $\Delta(G)$ number of vertices (we denotes them alphabetically). In the base case of $\Delta(G) = 4$, we may have the following graph for fundation.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\linewidth]{{fig/fig_p4_1.png}}
+\end{figure}
+
+We will notice between the first and last alphabetically named vertices, there will be $\Delta(G) - 2$ vertices in between (non-inclusive), we call the path between them as $P$. We then remove the first and last vertices of $P$ to make $P'$, and connect the $V(P')$ to $X$. In this case, $P$ will be $B, C$; and since $P$ has only 2 vertices, we have $|V(P')| = 0$, thus nothing from $P'$ conncted to $X$.
+
+We then try to draw 3 $\Delta(G)-2$ cliques among the alphabetically named vertices. In this case it will be:
+
+\begin{gather*}
+    A \ B \\
+    B \ C \\
+    C \ D
+\end{gather*}
+
+Where $AB$, $BC$, $CD$ each formed a 2-clique. We may tell there must be $\chi(G) = 3$. As the second $\Delta(G)-2$-clique ($B \ C$) must use 2 colors, then $A$ and $D$ must have a different color, this make $X$ must have the 3-rd color; thus accomplishes $\chi(G) = 3$ and satisfies the $\chi(G) \geq \Delta(G) - 1$ requirement.
+
+We also know that this graph does not contain any $\Delta(G) - 1$ clique as each two rows of clique will have at least 1 different vertex.
+
+We also know that this graph will not be have a maximum degree $\geq 4$, as there are only 5 vertices in it. Actually, to make $\Delta(G) = 4$, we must place some dummy vertices connected to $X$ (which won't affect the $\chi(G)$). The below graph is a solution to $\Delta(G) = 4$.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\linewidth]{{fig/fig_p4_2.png}}
+\end{figure}
+
+Since $\Delta(G) = 4$ has no $P'$, here is $\Delta(G) = 5$ to help demonstrating the idea (in this case $P'$ is $C$):
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\linewidth]{{fig/fig_p4_3.png}}
+\end{figure}
+
+Which will have $\Delta(G) - 2= 3$-cliques on:
+
+\begin{gather*}
+    A \ B \ C \\
+    B \ C \ D \\
+    C \ D \ E
+\end{gather*}
+
+Where $B \ C \ D$ willl use up 3 color, and $A, E$ (for the sake of having minimum coloring), must use the color of $D, B$. However, since $A, E, C$ are all connected to $X$, $X$ must have the 4-th color, making $\chi(G) = 4$. The graph has $6$ vertices so we can at most $\Delta(G) = 5$; we may always have $\Delta(G) = 5$ by adding dummy vertices, although it is not necessary at this case since $d(C) = 5$. And the graph conyains no $\Delta(G) - 1 = 4$ cliques as each two rows of clique will have at least 1 different vertex.\newline
+
+
+
+Now we like to show this method also works for $\Delta(G) = k$. We may first have $X$ and $k$ alphabetically named vertices, all connected as a cycle. We then identify the $P'$ and connect all $V(P')$ to $X$. We then form 3 $\Delta(G) - 2$-cliques on the alphabetically named vertices, which will be like (Note $k$ means the $k-th$ alphabetically named vertex):
+
+\begin{align*}
+    A \ B \ C \ D \ E \ ... \ &k - 2\\
+    B \ C \ D \ E \ F \ ... \ &k - 1 \\
+    C \ D \ E \ F \ G \ ... \ &k
+\end{align*}
+
+We know that the second row of clique will use up $k - 2$ colors and $A, k$ won't share a color. We also know that $k - 4$ vertices ($\in V(P')$) will be connected to $X$ along with $A$ and $k$, where all of them have different colors. This suggest $X$ must have the $k-1$-th color.\newline
+
+We have showed $\chi(G) = k-1$. We now this $G$ contains no $k-1$ cliques as every 2 rows of $k-2$-cliques have at least 1 vertex differ. We also know that this graph will not have a maximum degree $\geq k$, as it has only $k+1$ vertices.
+
+We have showed this graph constructing method works for any arbitary $G$ with $\Delta(G) \geq 4$.
+
 % \section{References}
 %
 % \nocite{*}
