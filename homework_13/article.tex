@@ -164,6 +164,13 @@ In fact, by showing that regardless where $P$ ends, we may always color the extr
 
 \section*{Problem 2}
 
+\textit{I have consulted this problem with Danial Shao.}\newline
+
+To prove by induction. For $G$ with $\Delta = 2$, each vertex have two edges connected to it. We can color all vertices with 2-color untill an odd cycle is reached. In this case we introduced the thrid color and we are done. Thus $\chi'(G) \leq \frac{3}{2}\Delta(G)$.\newline
+
+Assume it holds true for $G$ with $\Delta = k$. Now we have $G'$ with $\Delta = k + 2$. Known that $G$ is already properly colored, we inspect $E(G') - E(G)$ as thoese are the edges we need to color. It is observable that this is just a $\Delta = 2$ multigraph and we have showned this can be colored with 3 new colors.
+
+Thus, we have $\chi'(G') \leq \chi'(G') + 3$, where we know that $ \chi'(G') + 3 = \frac{3k}{2} + 3 = \frac{3k+2}{2}$. With $n = 2$, $n = k$, $n + 2$ all being true, we have shown for $G$ with $\Delta = k$, $\chi'(G') \leq \frac{3k}{2}$
 % \section{References}
 %
 % \nocite{*}
