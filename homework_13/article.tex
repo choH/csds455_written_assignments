@@ -144,21 +144,23 @@ Either of the case will make $P$ end on a vertex $v$ outside of $N(x)$ and $y$. 
 
 \subsection*{Conclusion: $P$ must end on $y$.}
 
-By \textbf{Proposition 3, 4}, we know that a \textcolor{orange}{orange}-\textcolor{red}{red} alternating walk $P$ from $x$ can't end on $N(x)$, can't end on $G-y$, and obviously it can't end on $x$ itself as $x$ misses \textcolor{red}{red}. So the only left option it to end on $y$.
+By \textbf{Proposition 3, 4}, we know that a \textcolor{orange}{orange}-\textcolor{red}{red} alternating walk $P$ from $x$ can't end on $N(x)$, can't end on $G-y$, and obviously it can't end on $x$ itself as $x$ misses \textcolor{red}{red}. So the only left option it to have $P$ ends on $y$, then the statement in question is therefore proven.
 
-In the following diagram we will show by having $P$ ends on $y$, we can't make a contradiction by doing the recoloring operation.
+\end{proof}
+
+In the following diagram we will show with $P$ ends on $y$, by having a series of recoloring operations, we may still make $x$ and $y$ both missing the same color (\textcolor{red}{red}) and form a contradiction. But this is simply because the assumption of the problem that $\chi'(G) > \Delta(G) + 1$ is false (\textsc{Vizing}'s theorm says  $\chi'(G) \leq \Delta(G) + 1$), so a skewed conclusion is reached.
+
+In fact, by showing that regardless where $P$ ends, we may always color the extra edge $xy$ with the existing $\Delta + 1$ colors used in coloring $G-xy$ proven the \textsc{Vizing}'s theorm.
 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{{fig/fig_p1_7.png}}
+    \includegraphics[width=1\linewidth]{{fig/fig_p1_8.png}}
 \end{figure}
 
-It is clear that although an interchange recoloring of $P$ is possible, we only swapped the missing color between $x$ and $y$, so we can't color $xy$ with an existing color and no contradiction is made.
 
-The statement in question is therefore proven.
 
-\end{proof}
+
 
 \section*{Problem 2}
 
