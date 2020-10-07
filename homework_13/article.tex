@@ -105,7 +105,7 @@ Combining the finding of \textbf{Proposition 1, 2, 3}, we will have a graph like
 
 If we consider a subgraph $G'$ with only \textcolor{orange}{orange} and \textcolor{red}{red} edges by the coloring of $G-xy$, we know that every vertex in $G'$ will have a degree of $0$, $1$, or $2$. Now we take a \textcolor{orange}{orange}-\textcolor{red}{red} alternating walk $P$ from $x$, until it reaches a vertex $v \in V(G)$ where we can't extend the walk any farther (which implies $d(v) = 1$). We let $v \not \in N(x)$ and $v \neq y$ in this case.\newline
 
-We can't have this kind of $v$ as we may simply interchange the \textcolor{orange}{orange}-\textcolor{red}{red} coloring of $P$. We may then have $x$ and $y$ both missing \textcolor{orange}{orange} and thus a contradiction.
+We can't have this kind of $v$ as we may simply interchange the \textcolor{orange}{orange}-\textcolor{red}{red} coloring of $P$. We may then have $x$ and $y$ both missing \textcolor{orange}{orange} and thus a contradiction. So we know a \textcolor{orange}{orange}-\textcolor{red}{red} alternating walk $P$ from $x$ can't end on a vertex outside of $N(x)$ and $y$.
 
 
 \begin{figure}[H]
@@ -113,7 +113,45 @@ We can't have this kind of $v$ as we may simply interchange the \textcolor{orang
     \includegraphics[width=0.8\linewidth]{{fig/fig_p1_5.png}}
 \end{figure}
 
+\subsection*{Proposition 4. If $x$ misses \textcolor{red}{red} and $y$ misses \textcolor{orange}{orange}, the maximal  \textcolor{orange}{orange}-\textcolor{red}{red} alternating path from $x$ can't end on a vertex $\in N(x)$.}
 
+It is trivial to tell a \textcolor{orange}{orange}-\textcolor{red}{red} alternating walk $P$ from $x$ can't end on $u_1$ (where $xu_1$ is the first edge of $P$). $P$ may either end on a $u_i$ where $u_i$ misses \textcolor{orange}{orange} (like $u_3$ in the below graph); or $P$ will visit another $u_j \in N(x)$ which has \textcolor{orange}{orange} edge connected to it, but in this case this $P$ will not end on $N(x)$.
+
+We first show the case of $P$ ending on a vertex $u_i \in N(x)$ where $u_i$ misses the same color as $y$ (\textcolor{orange}{orange}). In this case we interchange the color in $P$ as following and we have have $x$ and $y$ both missing \textcolor{orange}{orange} -- a contradiction.
+
+
+
+
+In the case of $P$ ending on a vertex $u_j \in N(x)$ where $u_j$ has \textcolor{orange}{orange} edge connected to it. We can tell $P$ will not end on $N(x)$ as:
+
+\begin{enumerate}
+    \item $u_{j-1}u_j \in E(P)$ is \textcolor{orange}{orange}, then we may extend this $P$ farther to include the \textcolor{red}{red} edge connected to $u_j$.
+    \item $u_{j-1}u_j \in E(P)$ is \textcolor{red}{red}, in this case we may extend this $P$ farther by including the \textcolor{orange}{orange} edge connected to $u_j$.
+\end{enumerate}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{{fig/fig_p1_6.png}}
+\end{figure}
+
+Either of the case will make $P$ end on a vertex $v$ outside of $N(x)$ and $y$. According to \textbf{Proposition 2}, this will give us a contradiction.
+
+\subsection*{Conclusion: $P$ must end on $y$.}
+
+By \textbf{Proposition 3, 4}, we know that a \textcolor{orange}{orange}-\textcolor{red}{red} alternating walk $P$ from $x$ can't end on $N(x)$, can't end on $G-y$, and obviously it can't end on $x$ itself as $x$ misses \textcolor{red}{red}. So the only left option it to end on $y$.
+
+In the following diagram we will show by having $P$ ends on $y$, we can't make a contradiction by doing the recoloring operation.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{{fig/fig_p1_7.png}}
+\end{figure}
+
+It is clear that although an interchange recoloring of $P$ is possible, we only swapped the missing color between $x$ and $y$, so we can't color $xy$ with an existing color and no contradiction is made.
+
+The statement in question is therefore proven.
 
 
 
