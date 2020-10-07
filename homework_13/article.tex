@@ -90,7 +90,7 @@ We know this recoloring method works since $N(x)$ is finite, so we will always a
 Now we have showed that every missing color of $N(X)$ must show on an edge of $ux$ for $u \in N(x)$. Be familiar with this recoloring method as we will use it later.
 
 
-\subsection*{Proposition 2. If $x$ misses \textcolor{red}{red}. Every $u \in N(x)$ must have an \textcolor{red}{red} edge connected to $u$.}
+\subsection*{Proposition 3. If $x$ misses \textcolor{red}{red}. Every $u \in N(x)$ must have an \textcolor{red}{red} edge connected to $u$.}
 
 Because otherwise, by using the recolring method introduced in \textbf{Proposition 2}, we may have $x$ and $y$ both missing \textcolor{orange}{orange} and thus a contradiction. The following is an example assuming $u_3$ missing \textcolor{red}{red}, but it can be any $u \in N(x)$.
 
@@ -101,6 +101,17 @@ Because otherwise, by using the recolring method introduced in \textbf{Propositi
 
 Combining the finding of \textbf{Proposition 1, 2, 3}, we will have a graph like [Figure \ref{fig:p1_1}].
 
+\subsection*{Proposition 4. If $x$ misses \textcolor{red}{red} and $y$ misses \textcolor{orange}{orange}, the maximal  \textcolor{orange}{orange}-\textcolor{red}{red} alternating path from $x$ can't end on a vertex $\not \in N(x)$ and not $y$.}
+
+If we consider a subgraph $G'$ with only \textcolor{orange}{orange} and \textcolor{red}{red} edges by the coloring of $G-xy$, we know that every vertex in $G'$ will have a degree of $0$, $1$, or $2$. Now we take a \textcolor{orange}{orange}-\textcolor{red}{red} alternating walk $P$ from $x$, until it reaches a vertex $v \in V(G)$ where we can't extend the walk any farther (which implies $d(v) = 1$). We let $v \not \in N(x)$ and $v \neq y$ in this case.\newline
+
+We can't have this kind of $v$ as we may simply interchange the \textcolor{orange}{orange}-\textcolor{red}{red} coloring of $P$. We may then have $x$ and $y$ both missing \textcolor{orange}{orange} and thus a contradiction.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{{fig/fig_p1_5.png}}
+\end{figure}
 
 
 
