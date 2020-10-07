@@ -126,18 +126,23 @@ We first show the case of $P$ ending on a vertex $u_i \in N(x)$ where $u_i$ miss
 
 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{{fig/fig_p1_6.png}}
+\end{figure}
 
 In the case of $P$ ending on a vertex $u_j \in N(x)$ where $u_j$ has \textcolor{orange}{orange} edge connected to it. We can tell $P$ will not end on $N(x)$ as:
 
 \begin{enumerate}
-    \item $u_{j-1}u_j \in E(P)$ is \textcolor{orange}{orange}, then we may extend this $P$ farther to include the \textcolor{red}{red} edge connected to $u_j$.
-    \item $u_{j-1}u_j \in E(P)$ is \textcolor{red}{red}, in this case we may extend this $P$ farther by including the \textcolor{orange}{orange} edge connected to $u_j$.
+    \item If $u_{j-1}u_j \in E(P)$ is \textcolor{red}{red}, in this case we may extend this $P$ farther by including the \textcolor{orange}{orange} edge connected to $u_j$.
+    \item If $u_{j-1}u_j \in E(P)$ is \textcolor{orange}{orange}, then we may extend this $P$ farther to include the \textcolor{red}{red} edge connected to $u_j$.
 \end{enumerate}
+
 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{{fig/fig_p1_6.png}}
+    \includegraphics[width=0.7\linewidth]{{fig/fig_p1_6_1.png}}
 \end{figure}
 
 Either of the case will make $P$ end on a vertex $v$ outside of $N(x)$ and $y$. According to \textbf{Proposition 2}, this will give us a contradiction.
