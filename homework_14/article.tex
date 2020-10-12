@@ -91,7 +91,16 @@ And as we have showed the graph cannot have a subdivision of a 7-clique, we have
 
 \section*{Problem 2}
 
-We first inspect the \textit{lemma} introduced in problem 1, we have $|V(G)| = 3 \cdot 5 = 15$ which implies $\chi(G) \leq \frac{15}{}$
+We first inspect the \textit{lemma} introduced in problem 1. We have $|V(G)| = 3 \cdot 5 = 15$, and we also have $\alpha(G) = 2$ as only two non-adjacent ``components'' will be independent from eachother, which implies $\chi(G) \geq \frac{15}{2} = 7.5 \Longrightarrow \chi(G) \geq 8$. So the graph has the possibility for being 8-chromatic, we have provided one way of doing so below:
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{{fig/fig_p2.png}}
+\end{figure}
+
+Now to show this graph does not contain a subdivision of an 8-clique. Knowing that an 8-clique need 8 vertices with 7 vertex-disjoint paths between every two of them, however for any vertex $v$ from the graph, $d(v) = 6$. Therefore we have no subdivision of an 8-clique in this graph.
+
 
 \section*{Problem 3}
 
