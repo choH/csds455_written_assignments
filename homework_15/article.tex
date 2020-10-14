@@ -49,7 +49,7 @@
 
 \section*{Problem 1}
 
-It is because for the regularity to be hold, we will need the relationship of $|d(X, Y)| - d(A, B)| < \epsilon$. For $e(X, Y)$ representing the number of edges between $X$ and $Y$, the density of pair $(X, Y)$ is determind by $\frac{e(X, Y)}{|X||Y|}$ and will therefore be a value between 0 to 1. This is because $e(X, Y)$ can be at most $|X||Y|$ (in the case of $|Y| = 1$ W.L.O.G.), and at least $0$ as neither $X$ or $Y$ can be an empty set.
+It is because for the regularity to be hold, we will need the relationship of $|d(X, Y)| - d(A, B)| < \epsilon$. For $e(X, Y)$ representing the number of edges between $X$ and $Y$, the density of pair $(X, Y)$ is determind by $\frac{e(X, Y)}{|X||Y|}$ and will therefore be a value between 0 to 1. This is because $e(X, Y)$ can be at most $|X||Y|$, and at least $0$ as neither $X$ or $Y$ can be an empty set.
 
 For the relationship $|d(X, Y)| - d(A, B)| < \epsilon$ to be hold, tthe $X, Y$ sets we pick can't be too small. An extreme case will be $|X| = |Y| = 1$, where each set has one and only one vertex, then $d(X, Y)$ will be either 0 or 1 depending on if there's an edge between the two vertices. In the case of $d(X, Y) = 0$, we will inevitably have $|d(X, Y)| - d(A, B)| = d(A, B)$, which might not be $< \epsilon$. Therefore, a minimum vertex cardinality of $X, Y$ is required to give the subsets similar density to their parent sets.
 
