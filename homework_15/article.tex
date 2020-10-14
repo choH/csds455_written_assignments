@@ -56,6 +56,18 @@ For the relationship $|d(X, Y)| - d(A, B)| < \epsilon$ to be hold, tthe $X, Y$ s
 
 \section*{Problem 2}
 
+Due to the nature of complement graph, we will have $d_{\bar{G}}(X, Y) = 1 - d_G(X, Y)$ (W.L.O.G). This is because as the edges not connected in $G$ are now connected in $\bar{G}$, for the density formula $d(X, Y) = \frac{e(X, Y)}{|X||Y|}$\footnote{$X, Y$ here are just two example sets} the denominator will be the same, but for the numerator the edges between $\bar{X}$ and $\bar{Y}$ will be $|X||Y| - e(X, Y)$.
+
+Subsituting this discover into the $\epsilon$-regularity inequality and knowing that $|d_G(X, Y)| - d_G(A, B)| < \epsilon$, we have:
+
+\begin{align*}
+    |d_{\bar{G}}(X, Y)| - d_{\bar{G}}(A, B)| &= |1 - d_G(X, Y) - (1 - d_G(A, B))| \\
+    &= |d_G(A, B) - d_G(X, Y)| \\
+    &< \epsilon
+\end{align*}
+
+Thus for an $\epsilon$-regular $G$, we have an $\epsilon$-regular $\bar{G}$.
+
 
 
 % \section{References}
