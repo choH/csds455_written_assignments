@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{footnotebackref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{esint}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{wasysym}
+\newcommand{\ilc}{\texttt}
+\usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{changepage}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows.meta,arrows}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+% \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+
+\title{\textbf{CSDS 455: Homework 16}}
+
+\author{Shaochen (Henry) ZHONG, \ilc{sxz517}}
+\date{Due and submitted on 10/19/2020 \\ Fall 2020, Dr. Connamacher}
+\maketitle
+
+
+
+\section*{Problem 1}
+
+Given a bipartite graph $G$ with partitions $U, V$. We will make a $G'$ with two new verticies $s, t$ where $S$ is directionally connected to all the verticies in $U$, likewise, $t$ is directionally connected to all the verticies in $V$. We direct all the edges from $U$ to $V$, then make all edges in this $G'$ with capacity of 1. We will find the maximum flow $f$ of this $G'$, where edges used in $f$ that is also in $G$ is the larges possible matching in $G$.\newline
+
+We denote the edges used in $f$ that is also in $G$ as $M$. We know that $M$ is a matching as every edge from $U \to t$ in $f$ has a capacity of 1, since the input and output flow of a vertex is balanced, this menas if we have multiple verticies from $U$ that is connected to a same vertex in $v \in V$ in $M$, then we will know that edge $vt$ will have a $> 1$ flow in $f$, which is a contradiction to our flow capacity setup. So $M$ must be a matching of $G$.
+
+We also know that $M$ is a maximum matching of $G$. Known $M$'s corresponding $f$ is the maximum flow of $G'$ and considered every edge in $G'$ has a flow value of 1. If we ever have a $M'$ that is a bigger matching than $M$, then it must have a corresponding $f'$ that has a bigger flow value than $f$ -- which is, again, a contradiction to the setting of $f$. So, $M$ must be the maximum matching of $G$.
+
+
+\section*{Problem 2}
+
+\section*{Problem 3}
+
+
+
+
+% \section{References}
+%
+% \nocite{*}
+% \raggedright
+% \bibliography{references.bib}
+% \bibliographystyle{plain}
+
+
+\end{document}
