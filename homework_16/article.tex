@@ -106,9 +106,49 @@ Known that the $f$ constructed based on $P$ is a max flow where all of its edges
 
 \section*{Problem 3}
 
+\textit{I have discussed with Yige Sun for this problem.}\newline
+
+We define:
+\begin{itemize}
+    \item $a = cap(S \cap T, S \cap \bar{T})$
+    \item $b = cap(S \cap T, \bar{S} \cap \bar{T})$
+    \item $c = cap(S \cap T, \bar{S} \cap T)$
+    \item $d = cap(S \cap \bar{T}, \bar{S} \cap \bar{T})$
+    \item $e = cap(\bar{S} \cap T, \bar{S} \cap \bar{T})$
+    \item $f = cap(S \cap \bar{T}, \bar{S} \cap T)$
+    \item $g = cap(\bar{S} \cap T, S \cap \bar{T})$
+\end{itemize}
+
+First we analyse $cap(S \cup T, \overline{S \cup T})$, it is basically asking about edges going from $S \cup T$ to $\bar{S} \cap \bar{T}$. So we have:
+
+\begin{align*}
+    cap(S \cup T, \overline{S \cup T}) &= \  cap(S \cap T, \bar{S} \cap \bar{T})\\
+    & \ \ \ \ + cap(S \cap \bar{T}, \bar{S} \cap \bar{T}) \\
+    & \ \ \ \ + cap(\bar{S} \cap T, \bar{S} \cap \bar{T}) \\
+    &= b + d + e
+\end{align*}
 
 
+Similarily, we have $cap(S \cap T, \overline{S \cap T})$ to be edges from $S \cap T$ to $1-(S \cap T)$
 
+\begin{align*}
+    cap(S \cap T, \overline{S \cap T}) &= \ cap(S \cap T, \bar{S} \cap \bar{T})\\
+    & \ \ \ \ + cap(S \cap T, \bar{S} \cap T) \\
+    & \ \ \ \ + cap(S \cap T, S \cap \bar{T}) \\
+    &= b + c + a
+\end{align*}
+
+So we now that $cap(S \cup T, \overline{S \cup T}) + cap(S \cap T, \overline{S \cap T}) = a + 2b + c + d + e$. Then for $cap(S, \bar{S}) + cap(T, \bar{T})$, we have:
+
+\begin{align*}
+    cap(S, \bar{S}) + cap(T, \bar{T}) &= (b + c + d + f) + (a + b + e + g) \\
+    &= a + 2b + c + d + e + g \\
+    &\geq a + 2b + c + d + e \\
+    \Longrightarrow& \ \ cap(S \cup T, \overline{S \cup T}) + cap(S \cap T, \overline{S \cap T})
+    \leq cap(S, \bar{S}) + cap(T, \bar{T})
+\end{align*}
+
+The statement is therefore proven.
 % \section{References}
 %
 % \nocite{*}
