@@ -49,14 +49,55 @@
 
 \section*{Problem 1}
 
+\begin{proof}
+
 Given a bipartite graph $G$ with partitions $U, V$. We will make a $G'$ with two new verticies $s, t$ where $S$ is directionally connected to all the verticies in $U$, likewise, $t$ is directionally connected to all the verticies in $V$. We direct all the edges from $U$ to $V$, then make all edges in this $G'$ with capacity of 1. We will find the maximum flow $f$ of this $G'$, where edges used in $f$ that is also in $G$ is the larges possible matching in $G$.\newline
 
 We denote the edges used in $f$ that is also in $G$ as $M$. We know that $M$ is a matching as every edge from $U \to t$ in $f$ has a capacity of 1, since the input and output flow of a vertex is balanced, this menas if we have multiple verticies from $U$ that is connected to a same vertex in $v \in V$ in $M$, then we will know that edge $vt$ will have a $> 1$ flow in $f$, which is a contradiction to our flow capacity setup. So $M$ must be a matching of $G$.
 
 We also know that $M$ is a maximum matching of $G$. Known $M$'s corresponding $f$ is the maximum flow of $G'$ and considered every edge in $G'$ has a flow value of 1. If we ever have a $M'$ that is a bigger matching than $M$, then it must have a corresponding $f'$ that has a bigger flow value than $f$ -- which is, again, a contradiction to the setting of $f$. So, $M$ must be the maximum matching of $G$.
 
+\end{proof}
+
 
 \section*{Problem 2}
+
+\begin{proof}
+
+Define two non-adjacent vertices $\in V(G)$ as $s, t$, then find out the set of vertex-disjoint paths from $s$ to $t$ as $P$. We define our flow $f$ as a directed vertion of $P$ with each edge having a flow capacity of $1$. Also when ever we add a vertex $v \in V(P)$ to our flow, we erase all the edges entering $v$ that are not in $E(P)$; we denote the graph after the flow is fully constructed (and erasion is fully done) as $G_f$.
+
+We know $f$ is a legal flow construction for $G_f$ as (for $u$ not being $s, t$) if we have an $u \in V(G_f)$ but $\not V(P)$, then there is no input nor output flow on $u$; likewise if we have an $u \in V(G_f)$ and also in $\in V(p)$ for $p \in P$, since $p$ is a vertex-disjoint path so this $u$ must be degree 2 with 1 flow input and 1 flow output. The input and output of flow is balanced in both cases.
+
+We also know that $f$ is a maximum flow for $G_f$, as otherwise if there is an augumenting path $q$ from $s$ to $t$, such $q$ must not share any edge with $f$ (as edges in $f$ are at their full capacities), it will also not share any verticies in $f$ (as other edges connected to verticies in $P$ are removed). So $q$ must be a path from $s$ to $t$ on vertices outside of $V(P)$, this is a contradiction to the setup of $f$ as $f$ should be the directed version of all vertex-disjoint pathes from $s$ to $t$.
+
+
+
+
+\leavevmode\newline
+
+
+    \begin{adjustwidth}{1cm}{}
+
+    \begin{proof}
+    \textbf{Lemma (max-flow-min-cut theorem):  The value of the max flow is equal to the capacity of the min cut.}\newline
+
+    Denotes the maximal $s, t$ flow to be $f(s, t)$. For a random $s-t$ cut, we denote the flow value of the cut to be $c(s, t)$ and the capacity of the cutted edges to be $C(s, t)$. Then we must have:
+
+    \begin{equation}
+        c(s, t) \leq f(s, t) \leq C(s, t)
+    \end{equation}
+
+    This suggest, by doing a ``min cut'' -- making a $s-t$ cut by removing minimum necessary edges where each edge's flow value is equal to its capacity -- after a max flow is achieved, we have $c(s, t) = C(s, t)$ and will therefore also equals to $f(s, t)$. Thus the statement is proven.
+
+
+    \end{proof}
+
+    \end{adjustwidth}
+
+\end{proof}
+
+Known that the $f$ constructed based on $P$ is a max flow where all of its edges have a $1/1$ value/capacity status. So by removing an edge from each vertex-disjoint path's projection in $f$, we have obtained a ``min cut'' of the graph with the value of the cut being equal to the number of disjoint pathes in $p$ -- which is also how \textsc{Menger}'s theorem determines the minimum cut required to disconnect the graph.
+
 
 \section*{Problem 3}
 
