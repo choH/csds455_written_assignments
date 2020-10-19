@@ -49,6 +49,8 @@
 
 \section*{Problem 1}
 
+\textit{I have consulted \url{https://www.cs.cmu.edu/~ckingsf/bioinfo-lectures/matching.pdf} for this problem.}
+
 \begin{proof}
 
 Given a bipartite graph $G$ with partitions $U, V$. We will make a $G'$ with two new verticies $s, t$ where $S$ is directionally connected to all the verticies in $U$, likewise, $t$ is directionally connected to all the verticies in $V$. We direct all the edges from $U$ to $V$, then make all edges in this $G'$ with capacity of 1. We will find the maximum flow $f$ of this $G'$, where edges used in $f$ that is also in $G$ is the larges possible matching in $G$.\newline
@@ -61,6 +63,8 @@ We also know that $M$ is a maximum matching of $G$. Known $M$'s corresponding $f
 
 
 \section*{Problem 2}
+
+\textit{I have consulted \url{https://www.cs.princeton.edu/courses/archive/spr04/cos226/lectures/maxflow.4up.pdf} for this problem.}
 
 \begin{proof}
 
@@ -94,10 +98,11 @@ We also know that $f$ is a maximum flow for $G_f$, as otherwise if there is an a
 
     \end{adjustwidth}
 
-\end{proof}
+
 
 Known that the $f$ constructed based on $P$ is a max flow where all of its edges have a $1/1$ value/capacity status. So by removing an edge from each vertex-disjoint path's projection in $f$, we have obtained a ``min cut'' of the graph with the value of the cut being equal to the number of disjoint pathes in $p$ -- which is also how \textsc{Menger}'s theorem determines the minimum cut required to disconnect the graph.
 
+\end{proof}
 
 \section*{Problem 3}
 
