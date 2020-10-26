@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{footnotebackref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{esint}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{wasysym}
+\newcommand{\ilc}{\texttt}
+\usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{changepage}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows.meta,arrows}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+% \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+
+\title{\textbf{CSDS 455: Homework 18}}
+
+\author{Shaochen (Henry) ZHONG, \ilc{sxz517}}
+\date{Due and submitted on 10/26/2020 \\ Fall 2020, Dr. Connamacher}
+\maketitle
+
+
+\section*{Problem 1}
+
+Known that every planer graph can be drawn in a plan graph format, we convert our planer $G$ to plane $G$. Now for edge contraction: if the contracted edge $e$ is a part of a chordal (3-edge) circle in $G$, then after the contraction every chordal circle including this $e$ will be ``collapsed'' to a line, and such collapse will not creating any non-chordal structure, thus the graph is still chordal. If the contracted edge $e$ is not part of a chordal circle, then a contraction of $e$ won't affect the chordal property of the graph.
+
+Since the graph is still chordal regardless which edge $e$ is contracted, the statement is therefore proven
+
+\section*{Problem 2}
+\section*{Problem 3}
+\section*{Problem 4}
+
+
+
+
+
+
+
+
+\end{document}
