@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{footnotebackref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{esint}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{wasysym}
+\newcommand{\ilc}{\texttt}
+\usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{changepage}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows.meta,arrows}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+% \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+
+\title{\textbf{CSDS 455: Homework 17}}
+
+\author{Shaochen (Henry) ZHONG, \ilc{sxz517}}
+\date{Due and submitted on 10/21/2020 \\ Fall 2020, Dr. Connamacher}
+\maketitle
+
+Hi Kyle, I got one midterm comming so didn't invest as much of time on this as I used to. Sorry if the proofs is kind of sketchy.
+
+\section*{Problem 1}
+
+\textit{I have consulted \url{https://www.ti.inf.ethz.ch/ew/lehre/GA10/lec-nfz-new-nopause.pdf} for this problem.}\newline
+
+
+I think it has something to do with Tutte's flow conjectures where every bridgeless graph has a 5-NZF. We already know that the sum of flow along any edge-cut of the graph is 0. So every bridgeless graph must admit a $k$-NZF. Then we push the $k$ with Tutte's flow conjectures till $k=5$ as demonstrated in the referenced source.\newline
+
+\noindent The other way to think about it might be the fact that if $G$ is $4$-NZF, then the flow of an edge $e$ of $G$ is at most $3$ and never $0$. Assume $e$ is an edge of verticies $uv$ in $G$. Since $G-e$ is bridgeless, this suggests $G$ is at least 3-connected. So maybe by distributing the $f(e) = 3$ to each edge, we promote some edge $e'$ to at most $f(e') = 4$ and therefore become $5$-NZF. But I haven't fully rationalized how to do this flow re-distribution yet.
+
+
+\section*{Problem 2}
+
+\textit{I have consulted \url{http://www.people.vcu.edu/~dcranston/slides/nowhere-zero-talk.pdf} and Yuhui Zhang for this problem.}\newline
+
+Let $G = G_1 \cup G_2$, say we have flow $f_1, f_2$ on $G_1$ and $G_2$ respectively. We extend $f_1$ to $\hat{f_1}$ by assigning weight $0$ to edges $\in E(G) - E(G_1)$; and likewise, extend $f_2$ to $\hat{f_2}$ by by assigning weight $0$ to edges $\in E(G) - E(G_2)$.
+
+Let $f = \hat{f_1} + k_1 \hat{f_2}$ which is a non-zero flow as $f_1$ and $f_2$ are non-zero. We know that $|f(e) \leq (k_1 - 1) + k_1(k_2 -1) = k_1 k_2 -1$. The statement is therefore proven.
+
+
+
+
+
+
+
+\end{document}
