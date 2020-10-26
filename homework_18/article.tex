@@ -48,12 +48,20 @@
 
 \section*{Problem 1}
 
-Known that every planer graph can be drawn in a plan graph format, we convert our planer $G$ to plane $G$. Now for edge contraction: if the contracted edge $e$ is a part of a chordal (3-edge) circle in $G$, then after the contraction every chordal circle including this $e$ will be ``collapsed'' to a line, and such collapse will not creating any non-chordal structure, thus the graph is still chordal. If the contracted edge $e$ is not part of a chordal circle, then a contraction of $e$ won't affect the chordal property of the graph.
+If the contracted edge $e$ is a part of a chordal (3-edge) circle in $G$, then after the contraction every chordal circle including this $e$ will be ``collapsed'' to a line, and such collapse will not creating any non-chordal structure, thus the graph is still chordal. If the contracted edge $e$ is not part of a chordal circle, then a contraction of $e$ won't affect the chordal property of the graph.
 
-Since the graph is still chordal regardless which edge $e$ is contracted, the statement is therefore proven
+Since the graph is still chordal regardless which edge $e$ is contracted, the statement is therefore proven.
 
 \section*{Problem 2}
+Known that every planar graph can be drawn in a plane graph format, we convert our planar $G$ to plane $G$ -- we may say that if a minor of plane $G$ is still plane, it must be planar.\newline
+
+It is trivial that edge or vertex deletion will not make a plane graph no longer plane. For edge contraction, say we are contraction edge of $xy$ into vertex $x'$. Due to the plane graph property, edge coming out of $x$ or $y$ are not crossing any other edges, and therefore so do edges comming out of $x'$ after the contraction.
+
+Since we have showed a plane graph $G$ will still be plane graph after all three possible minor-manuvers, a minor of $G$ must be a planar graph.
+
 \section*{Problem 3}
+
+
 \section*{Problem 4}
 
 
