@@ -76,6 +76,23 @@ Since we may obtain a $K_{k-1}$ minor out of $G'$ in every case, the statement i
 \section*{Problem 4}
 
 
+The base case will be $|V(G)|=1$, which does not contain $K_4$ minor and is certainly 3-colorable. We assume that this is true for $|V(G)| \leq k-1$.\newline
+
+For any graph with $|V(G)| = k$ (we only consider connected non-tree graph, as every tree is 2-colorable), we pick an edge $e$ between verticies $u, v$. Denotes the minimum vertex cut between $u, v$ to be $x$, we know this $x$ must be a independent set (i.e. no verteices within $x$ are internally connected), as otherwise (assuming $x_1, x_2$ are connected) we have path of $uv, ux_1, u_x2, v_1, v_x2, x_1 x_2$ which can produce a $K_4$ minor.
+
+After the vertex cut between $u, v$, we now denote the partition including $u$ plus $x$ to be $G_u$, and likewise the parition including $v$ plus $v$ to be $G_v$. Namely, we have $G_u \cap G_v = x$ and $G_u \cup G_v = G - e$. Now we do edge contraction to $G_u$ so that every verteices of $G_u$ is contracted to one vertex $u'$, we denote the graph $G$ with contracted $G_u$ as $G'_u$; and likewise we denote the graph $G$ with contracted $G_v$ to one vertex $v'$ as $G'_v$.\newline
+
+As $|V(G'_u), |V(G'_v)| < k$ and neither of them has a $K_4$ minor, by the induction assumption they are 3-colorable. This means, the $x$ portion of $G'_u$ can be colored as $c_1$, and the leftover $G'_u - x$ can be colored as $c_1, c_2, c_3$; similarily,  $x$ portion of $G'_v$ can be colored as $c_1$, and the leftover $G'_v - x$ can be colored as $c_1, c_2, c_3$. Note the
+
+Then for $G$, we may color the $x$ portion of it as $c_1$, then we color vertices in $G_u - x$ exactly as their corresponding vertices in $G'_v - x$; similarily, we color vertices in $G_v - x$ exactly as their corresponding vertices in $G'_u - x$. This will give us a 3-color of $G-e$ as $G_u - x$ are not connected to $G_v - x$, so as long as each of them are 3-colorable and $x$ using one of the three colors, we have a 3-colored $G-e$.
+
+Note it is possible that we may have $u, v$ colored as the same color. We know this color must be $c_2$ or $c_3$, as in $G'_u$ (W.L.O.G.) $v$ is connected to $u'$ (which includes all verticies in $x$), so $v$ must be using a different color to $x$. So if $u, v$ happen to be using the same color, say $c_2$, we may simply shift swap $c_2$-colored vertices to $c_3$ in $G_v - x$. With $u, v$ using different colors, we may add the $e$ back and have a 3-colored $G$.\newline
+
+Since we haved showed that for $G$ with $|V(G)| = 1, k-1, k$ having no $K_4$ minor, such $G$ is 3-colorable, we may say that every $G$ that does not contain a $K_4$ minor is three colorable.
+
+
+
+% W.L.O.G., we can make $u$ to be colored as $c_2$ and $v$ to be colored as $c_3$, where thezx
 
 
 
