@@ -81,6 +81,12 @@ The base case will be $|V(G)|=1$, which does not contain $K_4$ minor and is cert
 
 For any graph with $|V(G)| = k$ (we only consider connected non-tree graph, as every tree is 2-colorable), we pick an edge $e$ between verticies $u, v$. Denotes the minimum vertex cut between $u, v$ to be $x$, we know this $x$ must be a independent set (i.e. no verteices within $x$ are internally connected), as otherwise (assuming $x_1, x_2$ are connected) we have path of $uv, ux_1, u_x2, v_1, v_x2, x_1 x_2$ which can produce a $K_4$ minor.
 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{{fig/fig_p4_1.png}}
+\end{figure}
+
 After the vertex cut between $u, v$, we now denote the partition including $u$ plus $x$ to be $G_u$, and likewise the parition including $v$ plus $v$ to be $G_v$. Namely, we have $G_u \cap G_v = x$ and $G_u \cup G_v = G - e$. Now we do edge contraction to $G_u$ so that every verteices of $G_u$ is contracted to one vertex $u'$, we denote the graph $G$ with contracted $G_u$ as $G'_u$; and likewise we denote the graph $G$ with contracted $G_v$ to one vertex $v'$ as $G'_v$.\newline
 
 As $|V(G'_u), |V(G'_v)| < k$ and neither of them has a $K_4$ minor, by the induction assumption they are 3-colorable. This means, the $x$ portion of $G'_u$ can be colored as $c_1$, and the leftover $G'_u - x$ can be colored as $c_1, c_2, c_3$; similarily,  $x$ portion of $G'_v$ can be colored as $c_1$, and the leftover $G'_v - x$ can be colored as $c_1, c_2, c_3$. Note the
