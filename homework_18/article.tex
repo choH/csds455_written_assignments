@@ -61,6 +61,17 @@ Since we have showed a plane graph $G$ will still be plane graph after all three
 
 \section*{Problem 3}
 
+Base on the given instruction, of $\chi(G') \geq k$, then the proof is trivial as we know that such $G'$ will have a $K_k$ minor, and therefore by removing a vertex out of this $K_k$ minor, ad have a $K_{k-1}$ minor.
+
+If $\chi(G') \not \geq k$, in other another word  $\chi(G') = k-1$, we now add a vertex $v$ to $G'$ where $v$ is connected to all vertices of $G'$. Now there must be $\chi(G' + v) = k$ and therefore has a $K_k$ minor, we then proceed to solve it by cases:
+
+\begin{itemize}
+    \item If $v$ is part of the $K_k$ minor of $G' + v$. Then this suggests there must be a $K-1$ vertices of the $K_k$ minor in $G'$, where any two of them a connected. So we can identify these $K-1$ vertices inside $G'$ and deletion/contraction according to achieve a $K_{k-1}$ minor out of $G'$.
+    \item If $v$ is not in the $K_k$ minor of $G' + v$ due to deletion or simply not included in the $K_k$ minor, that means $G'$ already has a $K_k$ in itself and we can make a $K_{k-1}$ minor out of $K_k$ minor by removing one vertex (this is in fact not a case of $\chi(G' + v) = k$).
+    \item If $v$ is not in the $K_k$ minor of $G' + v$ due to edge contraction. Say $v$ is contracted with vertex $u$ to make $v'$ and this $v'$ is in the $K_k$ minor of $G' + v$. Then we can simply remove this $v'$ to make a $K_{k-1}$ minor.
+\end{itemize}
+
+Since we may obtain a $K_{k-1}$ minor out of $G'$ in every case, the statement is therefore proven.
 
 \section*{Problem 4}
 
