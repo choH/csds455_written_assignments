@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{footnotebackref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{esint}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{wasysym}
+\newcommand{\ilc}{\texttt}
+\usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{changepage}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows.meta,arrows}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+% \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+
+\title{\textbf{CSDS 455: Homework 19}}
+
+\author{Shaochen (Henry) ZHONG, \ilc{sxz517}}
+\date{Due and submitted on 10/28/2020 \\ Fall 2020, Dr. Connamacher}
+\maketitle
+
+\textit{I have consulted Yige Sun for the following problems.}
+
+\section*{Problem 1}
+
+To prove by induction. It is trivial to show that a 2-node tree is a 1-tree, due to the fact that a single vertex is a 2-complete graph and by definition a $1$-tree; then by connecting a new vertex to one of the first vertex, the first vertex itself is a 1-clique.
+
+Now assume this is true for a tree $T$ with $n$ verticies. For the $n+1$ vertex $v$, we must have $d(v) = 1$ as otherwise the graph will no longer be a tree. Say $v$ is connected to $u$, this $u$ itself is a 1-clique, and $T + v$ is therefore a 1-tree.\newline
+
+As we have showed that a tree with 2, $n$, or $n+1$ verticies is always a 1-tree, the statement is therefore proven.
+
+\section*{Problem 2}
+
+To prove by induction. For a 2-tree we start with 3-complete graph, we denote the three verticies as $a, b, c$, which includes $K_3$ the smallest cycle.
+
+Assume we may develop a 2-tree $T$ that includes a cycle with $n$ length. To further develop a 2-tree that contains a cycle with $n+1$ length, we may simply identify an edge $xy$ in $T$ where such edge is part of the $n$-cycle we found, then we again add a new vertex $v$ to connect to both $x$ and $y$. The graph is still a 2-tree due to the fact that $xy$ is a 2-clique; but now, by tracing every edge of the $n$-cycle excepts edge $xy$ but add with edges $vx$ and $vy$, we have a $n+1$ cycle.\newline
+
+As we have showed that a cycle of length 3, $n$, and $n+1$ can be found in some 2-tree, the statement is therefore proven.
+
+\section*{Problem 3}
+
+If a graph $G$ is a subgraph of a $k$-tree $T$, then it is trivial to say that the minors of $G$ obtained by edge or vertex deletions are still subgraph of the same $T$. The interesting part is the edge contraction. We also notice that the proposed question is same as asking a minor of a $k$-tree is still a $k$-tree; since a subgraph of $k$-tree is essentialy a minor of $k$-tree. \newline
+
+
+Say we have a $k$-tree $T$ and we'd like to add a vertex to it, the newly added vertex $v$ will form a $k+1$-cliques with its neighbors, as $N(v)$ should be a $k$-clique and $v$ is connected to every of them. Also considered the fact that a ``minimum'' $k$-tree is a complete graph with $k+1$ verticies, namely a $k+1$-clique, we may safely conclude that any edge among the a $k$-tree is inside a $k+1$-clique.
+
+Thus, doing edge contraction on any edge will cause one or some of the $k+1$-cliques to become $k$-cliques. This is still a legal $k$-tree as any vertex addition to a $k$-tree is done by connecting a new vertex to $k$ verticies on a $k$-clique.
+
+
+\end{document}
