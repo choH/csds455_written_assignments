@@ -75,7 +75,12 @@ Then we may simply do a postorder traversal from leaves to the root of the tree,
 
 \section*{Problem 2}
 
-We may use the same algorithm proposed in \textit{Problem 1}. A leave
+We will try to make $T$ a tree composition out of $k$-tree $T_k$. We first identify all the verticies with degree $k$, add them as leaves of $T$; we call them the ``first group''. Then we update $G$ by removing all the vertices and edges of vertices in $T$, and find the next (second) group of verticies with degree $k$ -- if two verticies out of the two (different) groups has an edge connected to them, they are child-parent (according to the order of deletion) in $T$. We may do this procedure recursively until we are left with a $k$ or $k+1$ clique, which will be the root of $T$.\newline
+
+We know that $T$ will be a tree, as no vertices with degree $k$ is connected to more than one vertex with degree $k$ with all verticies of the first group removed (namely, no verticies in the ``first group'' is connected to two verticies in the ``second group''). This procedure may potentialy take $O(|T_k| \cdot k)$ as we have to evaluate almost every verticies in $T_k$ meanwhile each of the verticies has $k$ potential ``parent'' to evaluate with.
+
+We then run the algorithm introduced in \textit{Problem 1} on $T$, which will take $O(|T|)$ time which will be absorbed to $O(|T_k| \cdot k)$.
+
 
 \section*{Problem 3}
 
