@@ -75,10 +75,30 @@ Then we may simply do a postorder traversal from leaves to the root of the tree,
 
 \section*{Problem 2}
 
-We may use the same algorithm proposed in \textit{Problem 1}. A leave 
+We may use the same algorithm proposed in \textit{Problem 1}. A leave
 
 \section*{Problem 3}
 
+\textit{I have consulted \url{https://en.wikipedia.org/wiki/Tree_decomposition}.}
 
+Let $T$ be the tree composition of $G$ with treewith $k$. We denote $X_i$ to be a node (bag) of $T$ and $X_j$ to be one of the child nodes of $X_i$ (if we traverse $T$ from an arbitary root). Let $S \subset X_i$ and $S' \subset (X_i \cap X_j)$, we further denote:
+
+\begin{itemize}
+    \item $A(S, i)$ to be the size of largest independent set $I$ among all $X_j$ such that $I \cap X_i = S$.
+    \item $B(S', i, j)$ to be the size of largest independent set $I$ among all $X_j$ such that $I \cap X_i \cap X_j = S'$.
+\end{itemize}
+
+We have the DP structure of (starts from a leave of tree $T$):
+
+\begin{align*}
+    A(S, i) &= |S| + \sum_{j} (B (S \cap X_j, i, j) - S|S \cap X_j|) \\
+    B(S, j, i) &= \max(A(S', i)) \Big\mid \ \text{for} \ S' \subset X_j, S = S' \cap X_i
+\end{align*}
+
+The algorithm works because if we want $S \subset X_i$ to be part of the maximum independent set $M$ of $G$, then we need to find all of the verticies that are independent to $S$ to add to $M$ -- from a DP standpoint, we will need to find how many vertices in the child nodes of $X_i$ can be add to $M$ along with $S$. $B (S \cap X_j, i, j) $ is counting the size of an independent set $I'$ where $I' \cap X_i \cap X_j = S \cap X_j$, so if we remove $S \cap X_j$ from $I'$, the left over verticies will not be connected to $S$ and therefore safe to add to $M$. By doing this recursively on all $X_j$, we may find the $M$ with respect to $S$.
+
+The runtime of calculating this $M$ is $O(|j|k)$ as we need $O(k)$ to figure out if the picked $S$ is an independent set, and there are $|j|$ children of $X_i$ to run the above algorithm with. Which is $\approx O(|G|)$ as we know that $|j|$ is at most $|T| - 1$ and $O((|T| - 1) k) < O(|G|)$.\newline
+
+Now we still need to find the best $S$ for $X_i$. Since $|X_i| \leq k + 1$, there are $2^{k+1} \approx 2^k$ subsets to consider. Combine the runtime of the procedure above together, we have $O(2^k|G|)$.
 
 \end{document}
