@@ -1,0 +1,71 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{footnotebackref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{esint}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{wasysym}
+\newcommand{\ilc}{\texttt}
+\usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{changepage}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows.meta,arrows}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+% \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+
+\title{\textbf{CSDS 455: Homework 21}}
+
+\author{Shaochen (Henry) ZHONG, \ilc{sxz517}}
+\date{Due and submitted on 11/04/2020 \\ Fall 2020, Dr. Connamacher}
+\maketitle
+
+
+
+\section*{Problem 1}
+
+\textit{I have consulted \url{https://www.sebastian-kuhnert.de/cs/paper/ktree.pdf} and \url{https://edoc.hu-berlin.de/bitstream/handle/18452/18099/kuhnert.pdf?sequence=1} for this problem.}
+
+
+We first obtain a tree decomposition $T(G)$ of $G$ where every bag of $V(T(G))$ is a $(k+1)$-clique in $G$ that is not contaned in exactly one $(k+1)$-clique, this will take $O(n^{(k+1)})$ time.
+
+We know that a $k$-tree $G$ is $(k+1)$-colorable, as it starts from a $k$-clique which takes $k$ colors, and for every new node it is conncted to a $k$ colors so it can be colored as the $k+1$ color. There will be $(k+1)!$ different coloring for $G$ as for the first node you may have $k+1$ choices, then $k$ choices, then $k-1$ choices...
+
+
+Let $T(G, \pi)$ to be $T(G)$ with the $(k+1)$-coloring $\pi$, we may than compute a canoical labeling of $G$ in linear time by doing a BFS from the center of $G$ to all verticies, which will take $O((k+1)!n)$ since there are $n$ nodes. We may then compare the canoical labeling of $H$ with $G$ and see if they are same -- as two isomorphic graphs will have identical canoical labeling. Thus, we have a total tuntime of $O(n^{(k+1)}) \cdot O((k+1)!n) = O(2n^{k+1}(k+1)!)$
+
+
+\section*{Problem 2}
+
+\textit{I have consulted Daniel Shao for this problem.}
+
+Note that in a tree decomposition $T(G)$ of $G$ with maximum bag size of $k+1$, there can be at most $\frac{(k+1)}{2}$ unique edges in this bag that can be in a cycle of all verticies (as one vertex is connected between $2$ edges). We loop over these edges as set $s = 1 \to \frac{(k+1)}{2}$, to see if they will be part of a Hamiltonian Curcuit.
+
+Know that a Hamiltonian Curcuit will visit a vertex twice, for a bag of $k+1$ verticies, there will be $k+1 \choose 2s$ edges to be a part of a Hamiltonian Curcuit. We then partition these edges into two sets, where there can be $S(2s, 2)$ ways of doing the partition. So far we got the $\sum^\frac{(k+1)}{2}_{1} \cdot { k+1 \choose 2s} \cdot S(2s, 2)$ were formed. But I don't have enough time/brain cell left to figure out the $2^{k+1-2s}$ stands for, gotta nervously freshing social media about the election, sorry!
+
+\end{document}
