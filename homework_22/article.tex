@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{footnotebackref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{esint}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{wasysym}
+\newcommand{\ilc}{\texttt}
+\usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{changepage}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows.meta,arrows}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+% \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+
+\title{\textbf{CSDS 455: Homework 21}}
+
+\author{Shaochen (Henry) ZHONG, \ilc{sxz517}}
+\date{Due and submitted on 11/09/2020 \\ Fall 2020, Dr. Connamacher}
+\maketitle
+
+
+
+\section*{Problem 1}
+
+\textit{I have consulted \url{https://core.ac.uk/download/pdf/81147875.pdf} and couple of papers which cited this paper. However, I don't quite get the whole picture of the proof and can't jump right into these lemmas as I don't know how are they contributing to the proof.}\newline
+
+Say the algorithm finding $r$-vertex-disjoint-path in $G$ takes $O(X)$ time where $X$ is a polynomial of $V(G)$. Denotes vertices in $G$ as $v_1, v_2, \dots, v_j, v_k, \dots, v_n$, we design a data structure that if $v_j$ and $v_k$ ever jointed together by edge contraction, we have the new vertex to be $v_{jk}$ -- where the original label $j, k$ is till remembered by the new vertex made by contraction.
+
+If $H$ with $u_1, u_2, ..., u_k$ for $k \leq n$ is a minor of $G$. W.L.O.G. We know that the vertex-disjoint-path from $u_a$ to $u_b$ must be a subset of the $r$-vertex-disjoint-path in $G$ from $v_a$ to $v_b$: as for if a path $P_H$ in $H$ from $u_a$ to $u_b$ is $<u_a, u_1, u_{23}, u_5, u_b$, we must have path $P_G$ in $G$ like $<v_a, v_1, v_2, v_3, v_4, v_5, u_b$ where every vetrex in $P_H$ is ``covered'' in a corresponding $P_H$.
+
+So we may simply calculate the $r_G$-vertex-disjoint-path in $G$ between every two verticies, which will take ${n \choose 2}O(X_G)$ which is a polynomial of $n$. Similarily, we calculate the same $r_H$-vertex-disjoint-path in $H$ which takes ${k \choose 2}O(X_H)$. Then we try to figure if every path in $r_H$ has a corresponding path in $r_G$. If so, $H$ is a minor $G$; and otherwise it is not.
+
+\end{document}
