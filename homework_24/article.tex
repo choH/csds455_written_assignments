@@ -1,0 +1,92 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{footnotebackref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{esint}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{wasysym}
+\newcommand{\ilc}{\texttt}
+\usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{changepage}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows.meta,arrows}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+% \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+
+\title{\textbf{CSDS 455: Homework 24}}
+
+\author{Shaochen (Henry) ZHONG, \ilc{sxz517}}
+\date{Due and submitted on 11/16/2020 \\ Fall 2020, Dr. Connamacher}
+\maketitle
+
+\textit{I have consulted Yige Sun for this assignment.}\newline
+
+\section*{Problem 1}
+
+\textit{Using the idea of "ribbons", modify CLIQUE example to determine the existance of 6-cliques instead of 4-cliques, and modify the TRIANGLE example to count the number of 5-cliques instead of triangles.}\newline
+
+\noindent \ilc{6-CLIQUE} and \ilc{5-CLIQUE} with utilization of ribbons can be expressed as:
+
+
+\begin{equation*}
+    \ilc{6-CLIQUE}(A_R, B_R) = \frac{1}{2^{15}} \sum\limit_{\text{R: graph on} \ V(A_r \cup B_r)} \Pi\limit_{\{l_1, l_2\} \in E(R)} \chi \{l_1, l_2\} \\
+\end{equation*}
+
+
+
+
+\begin{equation*}
+    \ilc{5-CLIQUE}(A_R, B_R) = \frac{1}{2^{10}} \sum\limit_{w_1 \in [n] \char`\\ V(A_r \cup B_r)} \ \ \cdot \sum\limit_{\text{R: graph on} \ V(A_r \cup B_r \cup C_R)} \Pi\limit_{\{l_1, l_2\} \in E(R)} \chi \{l_1, l_2\}
+\end{equation*}
+
+
+
+\section*{Problem 2}
+\textit{Is there a parity issue with this technique?  Can we count the number of 6-cliques and determine the existance of 5-cliques?  Show how you can adjust the algorithms for these problems or show why a straightforward modification will not work.}\newline
+
+\noindent I don't quite get this question, if we can count the number of 6-cliques we can surely determine the exsitance of 5-cliques, as any 6-clique contains a 5-clique. But in the case of no 6-clique, there is still the possibility of having 5-clique. In such case we may remove a vertex $x$ from one side of the ribben and run the \ilc{n-CLIQUE} algorithm to count if there's a $\ilc{(n-1)-CLIQUE}$.
+
+
+\section*{Problem 3}
+\textit{Given your solutions above, define what the "ribbon" and "shape" would be for the solutions.}\newline
+
+\begin{itemize}
+    \item Ribbon in \ilc{6-CLIQUE} in \textbf{Problem 1 & 2} is two sets of verticies of equal size (3).
+    \item Shape in \ilc{5-CLIQUE} in \textbf{Problem 1} is two sets of verticies of equal size (2) and another vertex from $[n]$.
+\end{itemize}
+
+
+\section*{Problem 4}
+
+\textit{Describe (general terms) the purpose of the "constraint graph" in section 3.  What is it supposed to represent?}\newline
+
+\noindent I haven't got this far yet but from a superficial scan it seems it a multi-graph representation of multiple graph matrices ``gluting'' together. Specifically it makes edge if there is an edge between two verticies from different partition of the ribben.
+
+
+\end{document}
