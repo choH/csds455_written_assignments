@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{footnotebackref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{esint}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{wasysym}
+\newcommand{\ilc}{\texttt}
+\usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{changepage}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows.meta,arrows}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+% \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+
+\title{\textbf{CSDS 455: Homework 23}}
+
+\author{Shaochen (Henry) ZHONG, \ilc{sxz517}}
+\date{Due and submitted on 11/11/2020 \\ Fall 2020, Dr. Connamacher}
+\maketitle
+
+
+
+\section*{Problem 1}
+
+\textit{What is the purpose of this paper?}\newline
+
+\noindent This paper is a major update of the paper \textit{“Bounds on the Norms of Uniform Low Degree Graph Matrices”} which the authors perviously published. The paper first recap the finding of the pervious paper, with graph martices analysis of the sum of squares approach on the planted clique problem. This paper generalize the definition of graph matrices to \textit{``different types of vertices, different input distributions, and hyperedges.''} And with the generalize norm bounds, it is a power tool to capture proofs discussed on other literatures.
+
+
+
+
+
+\section*{Problem 2}
+\textit{What does the paper mean by Erdos-Reyni model for graphs? Be precise.}\newline
+
+\noindent It is an input that can be described by a random graph $G$ where for each pair of distinct verticies $i, j$, the probablity of having an edge present in between $ij$ is $\frac{1}{2}$. Where such probablity is independent for all entries.
+
+
+\section*{Problem 3}
+\textit{What does the paper mean in the early examples when it talks about "Fourier analysis" of the example?  Try to be precise.}\newline
+
+\noindent It is a way to ``express'' or to ``represent'' a problem in a Fourier decomposition format. The first example showed in the paper is 4-clique indicator in the format of Fourier decomposition, the second one is a triangle counter.
+
+I don't quite understand why we have $2^{\text{\# of edges}}$ to be the denominator of the coefficient in the first example but it is clearly some sort of permutations. A possible explanation I have is $2^6 = {4 \choose 1} + {4 \choose 2} + {4 \choose 3} + {4 \choose 4} = 4 + 12 + 24 + 24 = 64$, this imples we are permuting all possible subsets from the 4 verticies. If the 4 verticies form a 4-clique, all of its subset are complete as well so we will have $2^6$ of $1$ sumed together. So we will have to give it a coefficient of $\frac{1}{2^6}$ to give the 4-clique indicator a 1 output.
+
+
+\section*{Problem 4}
+
+\textit{Can you tell what this paper has to do with graphs?}\newline
+
+\noindent Because a graph matrix can be described by a small graph, so mathmatical properties and findings on such matrix can be applied to the corresponding graph and therefore transfer as findings of verticies and edges (or something higher level).
+
+
+\end{document}
